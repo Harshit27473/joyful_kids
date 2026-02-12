@@ -1,12 +1,11 @@
 import 'package:flutter/material.dart';
-import 'package:myapp/components/footer.dart';
+import 'package:myapp/modules/home/footer.dart';
 import 'package:myapp/components/joyful_app_bar.dart';
 import 'package:myapp/components/joyful_bottom_nav.dart';
 import 'package:myapp/components/joyful_drawer.dart';
 import 'package:myapp/modules/home/home_banner.dart';
 import 'package:myapp/modules/home/home_body.dart';
 import 'package:myapp/modules/home/home_body_web.dart';
-import 'package:myapp/modules/home/popular_this_week.dart';
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({super.key});
@@ -34,8 +33,7 @@ class _HomeScreenState extends State<HomeScreen> {
                 }
               },
             ),
-            const PopularThisWeek(),
-            const Footer(),
+            const AppFooter(),
           ],
         ),
       ),

@@ -9,8 +9,8 @@ class HomeBanner extends StatelessWidget {
       padding: const EdgeInsets.all(16.0),
       child: ClipRRect(
         borderRadius: BorderRadius.circular(20.0),
-        child: Image.network(
-          'https://joyfulkids.arshiya.info/kids/home_en.jpg',
+        child: Image.asset(
+          'assets/images/home_en.jpg',
           fit: BoxFit.cover,
         ),
       ),
