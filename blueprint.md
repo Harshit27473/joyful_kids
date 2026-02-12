@@ -2,43 +2,54 @@
 
 ## Overview
 
-This document outlines the plan for developing the "Joyful Kids" Flutter application, based on the provided website design. The goal is to create a well-structured, scalable, and visually appealing mobile application.
+This document outlines the development of the "Joyful Kids" Flutter application. The goal is to create a well-structured, scalable, and visually appealing mobile and web application based on the user's design specifications.
 
-## Current Plan: Initial Setup and Home Screen
+## Style, Design, and Features
 
-This is the initial phase of development. The plan is to set up the project structure, create the main layout, and implement the home screen as depicted in the user-provided images.
+This section details the design, styling, and features implemented in the application from the initial version to the current version.
 
-### Steps:
+### V1 - Initial Implementation:
 
-1.  **Project Scaffolding:**
-    *   Create a modular project structure with `modules` and `components` directories inside `lib`.
-    *   Create an `assets/images` directory to store image assets for the application.
-    *   Update `pubspec.yaml` to include the assets directory.
+*   **Project Structure:**
+    *   A modular project structure was created with `modules` and `components` directories inside `lib` for better organization.
+    *   An `assets/images` directory was created and populated with all necessary image assets.
+    *   `pubspec.yaml` was updated to include the `google_fonts` and `readmore` packages, along with the assets directory.
 
-2.  **Theme and Main App:**
-    *   Modify `lib/main.dart` to remove the default counter app.
-    *   Set up a basic Material 3 theme with a custom color scheme and fonts that align with the "Joyful Kids" brand.
-    *   The main app widget will initialize the `HomeScreen`.
+*   **Theme and Main App:**
+    *   The `lib/main.dart` file was configured to set up the main application widget.
+    *   A `ThemeProvider` was implemented to manage light and dark themes.
+    *   Light and dark `ThemeData` were defined using `ThemeData.fromSeed` with a primary color and `GoogleFonts` for typography.
+    *   The debug banner was removed from the `MaterialApp`.
 
-3.  **Home Screen (`lib/modules/home/home_screen.dart`):**
-    *   Create a stateful widget for the home screen.
-    *   Implement a `Scaffold` with a custom `AppBar` and a `BottomNavigationBar`.
-    *   The body of the scaffold will be a `SingleChildScrollView` to contain all the content sections.
+*   **Home Screen (`lib/modules/home/home_screen.dart`):**
+    *   A `Scaffold` was implemented with a custom `AppBar`, `Drawer`, `BottomNavigationBar`, and a `SingleChildScrollView` body.
+    *   The body includes a background image and a responsive layout using `LayoutBuilder` to switch between `HomeBody` (mobile) and `HomeBodyWeb` (web).
 
-4.  **Components:**
-    *   **Custom AppBar (`lib/components/joyful_app_bar.dart`):**
-        *   A `PreferredSizeWidget` that displays the "Joyful Kids" logo, a menu icon, an "EN" language button, and a user profile icon.
-    *   **Custom Bottom Navigation Bar (`lib/components/joyful_bottom_nav.dart`):**
-        *   A custom-painted bottom navigation bar with three icons: videos, home, and games.
-    *   **Home Screen Body (`lib/modules/home/home_body.dart`):**
-        *   A widget to hold the main content of the home screen. This will be a `Column` containing:
-            *   Header image banner ("Your Child's Learning Wonderland").
-            *   "Choose What To Learn Today?" section with category cards.
-            *   "Popular This Week" section with a large content card.
-            *   "Reading Corner" section with smaller content cards.
-            *   Footer section with copyright and links.
+*   **Core Components:**
+    *   **`JoyfulAppBar` (`lib/components/joyful_app_bar.dart`):**
+        *   Displays the app logo.
+        *   Includes a hamburger menu icon to open the drawer.
+        *   Features a styled language selector dropdown that shows the current language ('EN').
+        *   Contains a user profile icon.
+    *   **`JoyfulDrawer` (`lib/components/joyful_drawer.dart`):** A placeholder drawer for future navigation.
+    *   **`JoyfulBottomNav` (`lib/components/joyful_bottom_nav.dart`):** A custom-painted bottom navigation bar with icons for "Videos," "Home," and "Games."
+    *   **`AppFooter` (`lib/modules/home/footer.dart`):** A footer section displaying copyright information and social media links.
 
-5.  **Initial Content (Placeholders):**
-    *   The initial implementation will use `Image.network` with placeholder URLs for all images. The user will provide the final image links.
-    *   Card widgets will be created with basic styling (rounded corners, shadows) and placeholder text.
-    *   Navigation will not be implemented in this phase; buttons and cards will have empty `onPressed` handlers.
+*   **Home Screen Content:**
+    *   **`HomeBanner` (`lib/modules/home/home_banner.dart`):** Displays the main banner image.
+    *   **`HomeBody` and `HomeBodyWeb` (`lib/modules/home/home_body.dart`, `lib/modules/home/home_body_web.dart`):**
+        *   Displays the main heading "Choose What To Learn Today?".
+        *   Presents category cards for "Interactive Learning Videos," "Reading Corner," and "Game Galaxy" with distinct background colors and icons.
+    *   **"Popular this Week" Section:**
+        *   Refactored to be dynamic using a `PopularItem` model and a `ListView.builder`.
+        *   Items are displayed in styled cards with images and titles.
+        *   Includes a "View All" button.
+    *   **"Reading Corner" Section (`lib/modules/home/reading_corner.dart`):**
+        *   Refactored to be dynamic using a `ReadingItem` model and a `GridView.builder`.
+        *   Displays articles in styled cards with images and titles.
+        *   Uses the `readmore` package to show truncated text with a "Read more" option.
+        *   Includes a "View All" button.
+
+## Current Plan: No Active Plan
+
+All initial development tasks have been completed. The application's home screen is fully implemented and styled according to the provided designs. The codebase is structured for future scalability. Waiting for the user's next request.

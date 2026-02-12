@@ -1,6 +1,7 @@
 
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:myapp/models/reading_item.dart';
 import 'package:readmore/readmore.dart';
 
 class ReadingCorner extends StatelessWidget {
@@ -8,6 +9,13 @@ class ReadingCorner extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final List<ReadingItem> readingItems = [
+      ReadingItem(title: 'Strategies For Building Resilience In Children', imageUrl: 'assets/images/strategies.jpg'),
+      ReadingItem(title: 'Identifying And Addressing Childhood Anxiety And Depression', imageUrl: 'assets/images/anxiety.jpg'),
+      ReadingItem(title: 'Promoting Positive Body Image In Children And Adolescents', imageUrl: 'assets/images/body_image.jpg'),
+      ReadingItem(title: 'Helping Children Cope With Stress And Overwhelm', imageUrl: 'assets/images/stress.jpg'),
+    ];
+
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
@@ -28,42 +36,37 @@ class ReadingCorner extends StatelessWidget {
                 Image.asset('assets/images/reading_corner_icon.png', height: 30),
               ],
             ),
-            TextButton(
+            ElevatedButton(
               onPressed: () {},
-              child: const Text('View All'),
+              style: ElevatedButton.styleFrom(
+                backgroundColor: const Color(0xFFFFC107),
+                shape: RoundedRectangleBorder(
+                  borderRadius: BorderRadius.circular(20),
+                ),
+              ),
+              child: const Text('View All', style: TextStyle(color: Colors.black)),
             ),
           ],
         ),
         const SizedBox(height: 20),
-        GridView.count(
+        GridView.builder(
           shrinkWrap: true,
           physics: const NeverScrollableScrollPhysics(),
-          crossAxisCount: 2,
-          crossAxisSpacing: 16,
-          mainAxisSpacing: 16,
-          childAspectRatio: 0.8,
-          children: [
-            _buildReadingCard(
-              title: 'Strategies For Building Resilience In Children',
-              imageUrl: 'assets/images/strategies.jpg',
+          gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
+            crossAxisCount: 2,
+            crossAxisSpacing: 16,
+            mainAxisSpacing: 16,
+            childAspectRatio: 0.8,
+          ),
+          itemCount: readingItems.length,
+          itemBuilder: (context, index) {
+            final item = readingItems[index];
+            return _buildReadingCard(
+              title: item.title,
+              imageUrl: item.imageUrl,
               onTap: () {},
-            ),
-            _buildReadingCard(
-              title: 'Identifying And Addressing Childhood Anxiety And Depression',
-              imageUrl: 'assets/images/anxiety.jpg',
-              onTap: () {},
-            ),
-            _buildReadingCard(
-              title: 'Promoting Positive Body Image In Children And Adolescents',
-              imageUrl: 'assets/images/body_image.jpg',
-              onTap: () {},
-            ),
-            _buildReadingCard(
-              title: 'Helping Children Cope With Stress And Overwhelm',
-              imageUrl: 'assets/images/stress.jpg',
-              onTap: () {},
-            ),
-          ],
+            );
+          },
         ),
       ],
     );

@@ -20,21 +20,29 @@ class _HomeScreenState extends State<HomeScreen> {
     return Scaffold(
       appBar: const JoyfulAppBar(),
       drawer: const JoyfulDrawer(),
-      body: SingleChildScrollView(
-        child: Column(
-          children: [
-            const HomeBanner(),
-            LayoutBuilder(
-              builder: (context, constraints) {
-                if (constraints.maxWidth > 600) {
-                  return const HomeBodyWeb();
-                } else {
-                  return const HomeBody();
-                }
-              },
-            ),
-            const AppFooter(),
-          ],
+      body: Container(
+        decoration: const BoxDecoration(
+          image: DecorationImage(
+            image: AssetImage('assets/images/body_background.png'),
+            fit: BoxFit.cover,
+          ),
+        ),
+        child: SingleChildScrollView(
+          child: Column(
+            children: [
+              const HomeBanner(),
+              LayoutBuilder(
+                builder: (context, constraints) {
+                  if (constraints.maxWidth > 600) {
+                    return const HomeBodyWeb();
+                  } else {
+                    return const HomeBody();
+                  }
+                },
+              ),
+              const AppFooter(),
+            ],
+          ),
         ),
       ),
       bottomNavigationBar: const JoyfulBottomNav(),

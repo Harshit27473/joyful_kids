@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:myapp/models/popular_item.dart';
 import 'package:myapp/modules/home/reading_corner.dart';
 
 class HomeBody extends StatelessWidget {
@@ -7,6 +8,12 @@ class HomeBody extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final List<PopularItem> popularItems = [
+      PopularItem(title: 'Soccer Championship', imageUrl: 'assets/images/soccer_championship.png'),
+      PopularItem(title: '7 Continents of the world', imageUrl: 'assets/images/7_continents.png'),
+      PopularItem(title: 'Traffic command', imageUrl: 'assets/images/traffic_command.png'),
+    ];
+
     return Padding(
       padding: const EdgeInsets.all(16.0),
       child: Column(
@@ -87,29 +94,31 @@ class HomeBody extends StatelessWidget {
                   Image.asset('assets/images/popular-icon.png', height: 30),
                 ],
               ),
-              TextButton(
+              ElevatedButton(
                 onPressed: () {},
-                child: const Text('View All'),
+                style: ElevatedButton.styleFrom(
+                  backgroundColor: const Color(0xFFFFC107),
+                  shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(20),
+                  ),
+                ),
+                child: const Text('View All', style: TextStyle(color: Colors.black)),
               ),
             ],
           ),
           const SizedBox(height: 20),
-          _buildPopularCard(
-            title: 'Soccer Championship',
-            imageUrl: 'assets/images/soccer_championship.png',
-            onTap: () {},
-          ),
-          const SizedBox(height: 20),
-          _buildPopularCard(
-            title: '7 Continents of the world',
-            imageUrl: 'assets/images/7_continents.png',
-            onTap: () {},
-          ),
-          const SizedBox(height: 20),
-          _buildPopularCard(
-            title: 'Traffic command',
-            imageUrl: 'assets/images/traffic_command.png',
-            onTap: () {},
+          ListView.builder(
+            shrinkWrap: true,
+            physics: const NeverScrollableScrollPhysics(),
+            itemCount: popularItems.length,
+            itemBuilder: (context, index) {
+              final item = popularItems[index];
+              return _buildPopularCard(
+                title: item.title,
+                imageUrl: item.imageUrl,
+                onTap: () {},
+              );
+            },
           ),
           const SizedBox(height: 30),
           const ReadingCorner(),
@@ -168,6 +177,7 @@ class HomeBody extends StatelessWidget {
     return GestureDetector(
       onTap: onTap,
       child: Container(
+        margin: const EdgeInsets.only(bottom: 20),
         decoration: BoxDecoration(
           color: const Color(0xFFFFC107),
           borderRadius: BorderRadius.circular(20),
