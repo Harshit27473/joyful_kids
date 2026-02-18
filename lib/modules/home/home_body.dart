@@ -2,6 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:myapp/models/popular_item.dart';
 import 'package:myapp/modules/home/reading_corner.dart';
+import 'package:myapp/screens/new_screen.dart';
+import 'package:myapp/screens/reading_corner_screen.dart';
+import 'package:myapp/screens/game_galaxy_screen.dart';
 
 class HomeBody extends StatelessWidget {
   const HomeBody({super.key});
@@ -21,10 +24,10 @@ class HomeBody extends StatelessWidget {
         children: [
           Text(
             'Choose What To Learn Today?',
-            style: GoogleFonts.acme(
-              fontSize: 26,
+            style: GoogleFonts.montserrat(
+              fontSize: 22,
               fontWeight: FontWeight.bold,
-              color: Colors.black87,
+              color: const Color(0xFF224966),
             ),
           ),
           const SizedBox(height: 20),
@@ -39,7 +42,10 @@ class HomeBody extends StatelessWidget {
                       imageUrl: 'assets/images/video_icon.png',
                       height: 240,
                       onTap: () {
-                        // TODO: Navigate to videos
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(builder: (context) => const NewScreen()),
+                        );
                       },
                     ),
                     const SizedBox(height: 20),
@@ -48,7 +54,10 @@ class HomeBody extends StatelessWidget {
                       imageUrl: 'assets/images/abc.png',
                       height: 200,
                       onTap: () {
-                        // TODO: Navigate to reading corner
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(builder: (context) => const ReadingCornerScreen()),
+                        );
                       },
                     ),
                   ],
@@ -68,7 +77,10 @@ class HomeBody extends StatelessWidget {
                       imageUrl: 'assets/images/game_icon.png',
                       height: 200,
                       onTap: () {
-                        // TODO: Navigate to game galaxy
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(builder: (context) => const GameGalaxyScreen()),
+                        );
                       },
                     ),
                   ],
@@ -143,7 +155,7 @@ class HomeBody extends StatelessWidget {
           borderRadius: BorderRadius.circular(20),
           boxShadow: [
             BoxShadow(
-              color: Colors.black.withOpacity(0.1),
+              color: Colors.black.withAlpha(25),
               blurRadius: 10,
               offset: const Offset(0, 5),
             ),
@@ -183,7 +195,7 @@ class HomeBody extends StatelessWidget {
           borderRadius: BorderRadius.circular(20),
           boxShadow: [
             BoxShadow(
-              color: Colors.black.withOpacity(0.1),
+              color: Colors.black.withAlpha(25),
               blurRadius: 10,
               offset: const Offset(0, 5),
             ),
