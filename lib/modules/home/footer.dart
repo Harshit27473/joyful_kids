@@ -31,7 +31,7 @@ class AppFooter extends StatelessWidget {
             ),
           ),
           Positioned(
-            bottom: 30,
+            bottom: 10,
             child: Column(
               children: [
                 Text(

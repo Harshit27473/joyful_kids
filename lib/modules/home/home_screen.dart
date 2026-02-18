@@ -17,8 +17,9 @@ class HomeScreen extends StatefulWidget {
 class _HomeScreenState extends State<HomeScreen> {
   @override
   Widget build(BuildContext context) {
+    final JoyfulAppBar appBar = JoyfulAppBar(); // Create an instance
+
     return Scaffold(
-      appBar: const JoyfulAppBar(),
       drawer: const JoyfulDrawer(),
       body: Container(
         decoration: const BoxDecoration(
@@ -27,30 +28,41 @@ class _HomeScreenState extends State<HomeScreen> {
             fit: BoxFit.cover,
           ),
         ),
-        child: LayoutBuilder(
-          builder: (context, constraints) {
-            if (constraints.maxWidth < 600) {
-              return SingleChildScrollView(
-                child: Column(
-                  children: const [
-                    HomeBanner(),
-                    HomeBody(),
-                    AppFooter(),
-                  ],
-                ),
-              );
-            } else {
-              return SingleChildScrollView(
-                child: Column(
-                  children: const [
-                    HomeBanner(),
-                    HomeBodyWeb(),
-                    AppFooter(),
-                  ],
-                ),
-              );
-            }
-          },
+        child: CustomScrollView(
+          slivers: [
+            SliverAppBar(
+              floating: true,
+              pinned: false,
+              snap: true,
+              backgroundColor: Colors.transparent,
+              automaticallyImplyLeading: false, // This will remove the hamburger menu
+              toolbarHeight: appBar.preferredSize.height,
+              flexibleSpace: appBar, // Use the instance here
+            ),
+            SliverToBoxAdapter(
+              child: LayoutBuilder(
+                builder: (context, constraints) {
+                  if (constraints.maxWidth < 600) {
+                    return Column(
+                      children: const [
+                        HomeBanner(),
+                        HomeBody(),
+                        AppFooter(),
+                      ],
+                    );
+                  } else {
+                    return Column(
+                      children: const [
+                        HomeBanner(),
+                        HomeBodyWeb(),
+                        AppFooter(),
+                      ],
+                    );
+                  }
+                },
+              ),
+            ),
+          ],
         ),
       ),
       bottomNavigationBar: const JoyfulBottomNav(),

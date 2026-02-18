@@ -161,7 +161,7 @@ class HomeBodyWeb extends StatelessWidget {
               title,
               textAlign: TextAlign.center,
               style: GoogleFonts.montserrat(
-                fontSize: 26,
+                fontSize: 22,
                 fontWeight: FontWeight.w500,
                 color: Colors.black,
               ),

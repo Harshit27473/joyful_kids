@@ -40,6 +40,7 @@ class HomeBody extends StatelessWidget {
                   child: Column(
                     children: [
                       _buildCategoryCard(
+                        context,
                         title: 'Interactive Learning\nVideos',
                         imageUrl: 'assets/images/video_icon.png',
                         height: 240,
@@ -52,6 +53,7 @@ class HomeBody extends StatelessWidget {
                       ),
                       const SizedBox(height: 20),
                       _buildCategoryCard(
+                        context,
                         title: 'Reading Corner',
                         imageUrl: 'assets/images/abc.png',
                         height: 240,
@@ -75,6 +77,7 @@ class HomeBody extends StatelessWidget {
                       ),
                       const SizedBox(height: 20),
                       _buildCategoryCard(
+                        context,
                         title: 'Game Galaxy',
                         imageUrl: 'assets/images/game_icon.png',
                         height: 240,
@@ -148,7 +151,8 @@ class HomeBody extends StatelessWidget {
     );
   }
 
-  Widget _buildCategoryCard({
+  Widget _buildCategoryCard(
+    BuildContext context, {
     required String title,
     required String imageUrl,
     required VoidCallback onTap,
@@ -182,7 +186,7 @@ class HomeBody extends StatelessWidget {
               title,
               textAlign: TextAlign.center,
               style: GoogleFonts.montserrat(
-                fontSize: 22,
+                fontSize: 18,
                 fontWeight: FontWeight.w500,
                 color: Colors.black,
               ),
