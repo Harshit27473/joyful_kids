@@ -18,7 +18,6 @@ class _HomeScreenState extends State<HomeScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: const JoyfulAppBar(),
       drawer: const JoyfulDrawer(),
       body: Container(
         decoration: const BoxDecoration(
@@ -27,22 +26,33 @@ class _HomeScreenState extends State<HomeScreen> {
             fit: BoxFit.cover,
           ),
         ),
-        child: SingleChildScrollView(
-          child: Column(
-            children: [
-              const HomeBanner(),
-              LayoutBuilder(
-                builder: (context, constraints) {
-                  if (constraints.maxWidth > 600) {
-                    return const HomeBodyWeb();
-                  } else {
-                    return const HomeBody();
-                  }
-                },
-              ),
-              const AppFooter(),
-            ],
-          ),
+        child: CustomScrollView(
+          slivers: <Widget>[
+            const SliverAppBar(
+              automaticallyImplyLeading: false,
+              backgroundColor: Colors.white,
+              floating: true,
+              snap: true,
+              pinned: false,
+              toolbarHeight: 70,
+              flexibleSpace: JoyfulAppBar(),
+            ),
+            SliverList(
+              delegate: SliverChildListDelegate([
+                const HomeBanner(),
+                LayoutBuilder(
+                  builder: (context, constraints) {
+                    if (constraints.maxWidth > 600) {
+                      return const HomeBodyWeb();
+                    } else {
+                      return const HomeBody();
+                    }
+                  },
+                ),
+                const AppFooter(),
+              ]),
+            ),
+          ],
         ),
       ),
       bottomNavigationBar: const JoyfulBottomNav(),

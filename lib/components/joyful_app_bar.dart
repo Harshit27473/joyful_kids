@@ -1,3 +1,4 @@
+
 import 'package:flutter/material.dart';
 
 class JoyfulAppBar extends StatefulWidget implements PreferredSizeWidget {
@@ -7,7 +8,7 @@ class JoyfulAppBar extends StatefulWidget implements PreferredSizeWidget {
   State<JoyfulAppBar> createState() => _JoyfulAppBarState();
 
   @override
-  Size get preferredSize => const Size.fromHeight(kToolbarHeight);
+  Size get preferredSize => const Size.fromHeight(70);
 }
 
 class _JoyfulAppBarState extends State<JoyfulAppBar> {
@@ -15,66 +16,83 @@ class _JoyfulAppBarState extends State<JoyfulAppBar> {
 
   @override
   Widget build(BuildContext context) {
-    return AppBar(
-      automaticallyImplyLeading: false,
-      backgroundColor: Colors.white,
-      elevation: 1,
-      leading: Padding(
-        padding: const EdgeInsets.all(4.0),
-        child: Image.asset('assets/images/joy.png', height: 50, fit: BoxFit.contain),
-      ),
-      actions: [
-        Builder(
-          builder: (context) => IconButton(
-            icon: const Icon(Icons.menu, color: Colors.black, size: 30),
-            onPressed: () => Scaffold.of(context).openDrawer(),
-          ),
-        ),
-        PopupMenuButton<String>(
-          onSelected: (String value) {
-            setState(() {
-              _selectedLanguage = value;
-            });
-          },
-          itemBuilder: (BuildContext context) => <PopupMenuEntry<String>>[
-            const PopupMenuItem<String>(
-              value: 'en',
-              child: Text('English'),
-            ),
-            const PopupMenuItem<String>(
-              value: 'fr',
-              child: Text('French'),
-            ),
-            const PopupMenuItem<String>(
-              value: 'ar',
-              child: Text('Arabic'),
-            ),
-          ],
-          child: Container(
-            margin: const EdgeInsets.symmetric(vertical: 12.0, horizontal: 8.0),
-            padding: const EdgeInsets.symmetric(horizontal: 12.0, vertical: 6.0),
-            decoration: BoxDecoration(
-              border: Border.all(color: Colors.grey.shade600, width: 1),
-              borderRadius: BorderRadius.circular(8.0),
-            ),
-            child: Text(
-              _selectedLanguage.toUpperCase(),
-              style: const TextStyle(
-                color: Colors.black,
-                fontWeight: FontWeight.bold,
-                fontSize: 16,
+    return PreferredSize(
+      preferredSize: widget.preferredSize,
+      child: Container(
+        color: Colors.white,
+        child: SafeArea(
+          child: Row(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            children: [
+              Padding(
+                padding: const EdgeInsets.only(left: 4.0, top: 8.0, bottom: 8.0),
+                child: SizedBox(
+                  height: 54,
+                  width: 150,
+                  child: Image.asset('assets/images/joy.png', fit: BoxFit.contain),
+                ),
               ),
-            ),
+              Padding(
+                padding: const EdgeInsets.only(right: 16.0),
+                child: Row(
+                  children: [
+                    Builder(
+                      builder: (context) => IconButton(
+                        icon: const Icon(Icons.menu, color: Colors.black, size: 30),
+                        onPressed: () => Scaffold.of(context).openDrawer(),
+                      ),
+                    ),
+                    PopupMenuButton<String>(
+                      onSelected: (String value) {
+                        setState(() {
+                          _selectedLanguage = value;
+                        });
+                      },
+                      itemBuilder: (BuildContext context) => <PopupMenuEntry<String>>[
+                        const PopupMenuItem<String>(
+                          value: 'en',
+                          child: Text('English'),
+                        ),
+                        const PopupMenuItem<String>(
+                          value: 'fr',
+                          child: Text('French'),
+                        ),
+                        const PopupMenuItem<String>(
+                          value: 'ar',
+                          child: Text('Arabic'),
+                        ),
+                      ],
+                      child: Container(
+                        margin: const EdgeInsets.symmetric(vertical: 12.0, horizontal: 8.0),
+                        padding: const EdgeInsets.symmetric(horizontal: 12.0, vertical: 6.0),
+                        decoration: BoxDecoration(
+                          border: Border.all(color: Colors.grey.shade600, width: 1),
+                          borderRadius: BorderRadius.circular(8.0),
+                        ),
+                        child: Text(
+                          _selectedLanguage.toUpperCase(),
+                          style: const TextStyle(
+                            color: Colors.black,
+                            fontWeight: FontWeight.bold,
+                            fontSize: 16,
+                          ),
+                        ),
+                      ),
+                    ),
+                    const Padding(
+                      padding: EdgeInsets.only(left: 8.0),
+                      child: CircleAvatar(
+                        backgroundColor: Colors.black,
+                        child: Icon(Icons.person, color: Colors.white),
+                      ),
+                    ),
+                  ],
+                ),
+              ),
+            ],
           ),
         ),
-        const Padding(
-          padding: EdgeInsets.only(right: 16.0, left: 8.0),
-          child: CircleAvatar(
-            backgroundColor: Colors.black,
-            child: Icon(Icons.person, color: Colors.white),
-          ),
-        ),
-      ],
+      ),
     );
   }
 }
