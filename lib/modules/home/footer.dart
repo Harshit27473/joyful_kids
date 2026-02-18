@@ -1,4 +1,3 @@
-
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
@@ -8,35 +7,56 @@ class AppFooter extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      decoration: const BoxDecoration(
-        image: DecorationImage(
-          image: AssetImage('assets/images/footer_background.jpeg'),
-          fit: BoxFit.cover,
-        ),
-      ),
-      padding: const EdgeInsets.symmetric(vertical: 40, horizontal: 20),
-      child: Column(
+      width: double.infinity,
+      color: const Color(0xFFF9E7EA),
+      child: Stack(
+        alignment: Alignment.center,
         children: [
-          Text(
-            'Copyright@2025. Joyfulkids',
-            style: GoogleFonts.lato(
-              fontSize: 16,
-              color: Colors.black87,
-              fontWeight: FontWeight.w500,
+          Column(
+            children: [
+              Image.asset(
+                'assets/images/footer_background.jpeg',
+                fit: BoxFit.fitWidth,
+                width: double.infinity,
+              ),
+              const SizedBox(height: 80), // Space for the text
+            ],
+          ),
+          Positioned(
+            right: 15,
+            bottom: 0,
+            child: Image.network(
+              'https://joyfulkids.arshiya.info/kids/images/rocket-icon.png',
+              height: 200,
             ),
           ),
-          const SizedBox(height: 20),
-          Row(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: [
-              _buildFooterLink('About Us', () {}),
-              _buildFooterDivider(),
-              _buildFooterLink('T&C', () {}),
-              _buildFooterDivider(),
-              _buildFooterLink('Privacy Policy', () {}),
-              _buildFooterDivider(),
-              _buildFooterLink('FAQ', () {}),
-            ],
+          Positioned(
+            bottom: 30,
+            child: Column(
+              children: [
+                Text(
+                  'Copyright@2025. Joyfulkids',
+                  style: GoogleFonts.lato(
+                    fontSize: 16,
+                    color: const Color(0xFF5D4037),
+                    fontWeight: FontWeight.w500,
+                  ),
+                ),
+                const SizedBox(height: 20),
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    _buildFooterLink('About Us', () {}),
+                    _buildFooterDivider(),
+                    _buildFooterLink('T&C', () {}),
+                    _buildFooterDivider(),
+                    _buildFooterLink('Privacy Policy', () {}),
+                    _buildFooterDivider(),
+                    _buildFooterLink('FAQ', () {}),
+                  ],
+                ),
+              ],
+            ),
           ),
         ],
       ),
@@ -50,7 +70,7 @@ class AppFooter extends StatelessWidget {
         text,
         style: GoogleFonts.lato(
           fontSize: 14,
-          color: Colors.black54,
+          color: const Color(0xFF5D4037),
           fontWeight: FontWeight.w500,
         ),
       ),
@@ -62,7 +82,7 @@ class AppFooter extends StatelessWidget {
       padding: EdgeInsets.symmetric(horizontal: 10),
       child: Text(
         '|',
-        style: TextStyle(fontSize: 14, color: Colors.black54),
+        style: TextStyle(fontSize: 14, color: Color(0xFF5D4037)),
       ),
     );
   }
