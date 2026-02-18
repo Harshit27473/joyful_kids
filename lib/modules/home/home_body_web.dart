@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:myapp/models/popular_item.dart';
+import 'package:myapp/modules/home/reading_corner.dart';
 import 'package:myapp/screens/new_screen.dart';
+import 'package:myapp/screens/popular_item_detail_screen.dart';
 import 'package:myapp/screens/reading_corner_screen.dart';
 import 'package:myapp/screens/game_galaxy_screen.dart';
 
@@ -16,97 +18,117 @@ class HomeBodyWeb extends StatelessWidget {
       PopularItem(title: 'Traffic command', imageUrl: 'assets/images/traffic_command.png'),
     ];
 
-    return Padding(
-      padding: const EdgeInsets.symmetric(horizontal: 64.0, vertical: 32.0),
-      child: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
-          Text(
-            'Choose What To Learn Today?',
-            style: GoogleFonts.montserrat(
-              fontSize: 30,
-              fontWeight: FontWeight.bold,
-              color: const Color(0xFF224966),
+    return SingleChildScrollView(
+      child: Padding(
+        padding: const EdgeInsets.symmetric(horizontal: 64.0, vertical: 32.0),
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            Text(
+              'Choose What To Learn Today?',
+              style: GoogleFonts.montserrat(
+                fontSize: 30,
+                fontWeight: FontWeight.bold,
+                color: const Color(0xFF224966),
+              ),
             ),
-          ),
-          const SizedBox(height: 40),
-          Row(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              Expanded(
-                child: _buildCategoryCard(
-                  title: 'Interactive Learning\nVideos',
-                  imageUrl: 'assets/images/video_icon.png',
-                  onTap: () {
-                    Navigator.push(
-                      context,
-                      MaterialPageRoute(builder: (context) => const NewScreen()),
-                    );
-                  },
+            const SizedBox(height: 40),
+            Row(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Expanded(
+                  child: _buildCategoryCard(
+                    title: 'Interactive Learning\nVideos',
+                    imageUrl: 'assets/images/video_icon.png',
+                    onTap: () {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(builder: (context) => const NewScreen()),
+                      );
+                    },
+                  ),
                 ),
-              ),
-              const SizedBox(width: 40),
-              Expanded(
-                child: _buildCategoryCard(
-                  title: 'Reading Corner',
-                  imageUrl: 'assets/images/abc.png',
-                  onTap: () {
-                    Navigator.push(
-                      context,
-                      MaterialPageRoute(builder: (context) => const ReadingCornerScreen()),
-                    );
-                  },
+                const SizedBox(width: 40),
+                Expanded(
+                  child: _buildCategoryCard(
+                    title: 'Reading Corner',
+                    imageUrl: 'assets/images/abc.png',
+                    onTap: () {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(builder: (context) => const ReadingCornerScreen()),
+                      );
+                    },
+                  ),
                 ),
-              ),
-              const SizedBox(width: 40),
-              Expanded(
-                child: _buildCategoryCard(
-                  title: 'Game Galaxy',
-                  imageUrl: 'assets/images/game_icon.png',
-                  onTap: () {
-                    Navigator.push(
-                      context,
-                      MaterialPageRoute(builder: (context) => const GameGalaxyScreen()),
-                    );
-                  },
+                const SizedBox(width: 40),
+                Expanded(
+                  child: _buildCategoryCard(
+                    title: 'Game Galaxy',
+                    imageUrl: 'assets/images/game_icon.png',
+                    onTap: () {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(builder: (context) => const GameGalaxyScreen()),
+                      );
+                    },
+                  ),
                 ),
-              ),
-            ],
-          ),
-          const SizedBox(height: 60),
-          Row(
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-            children: [
-              Row(
-                children: [
-                  Text(
-                    'Popular this Week',
-                    style: GoogleFonts.montserrat(
-                      fontSize: 32,
-                      fontWeight: FontWeight.bold,
-                      color: const Color(0xFF224966),
+              ],
+            ),
+            const SizedBox(height: 60),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [
+                Row(
+                  children: [
+                    Text(
+                      'Popular this Week',
+                      style: GoogleFonts.montserrat(
+                        fontSize: 28,
+                        fontWeight: FontWeight.bold,
+                        color: const Color(0xFF224966),
+                      ),
+                    ),
+                    const SizedBox(width: 20),
+                    Image.asset('assets/images/popular-icon.png', height: 40),
+                  ],
+                ),
+                ElevatedButton(
+                  onPressed: () {},
+                  style: ElevatedButton.styleFrom(
+                    backgroundColor: const Color(0xFFFEC50B),
+                    padding: const EdgeInsets.symmetric(horizontal: 32, vertical: 20),
+                    shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(30),
                     ),
                   ),
-                  const SizedBox(width: 20),
-                  Image.asset('assets/images/popular-icon.png', height: 40),
-                ],
-              ),
-              ElevatedButton(
-                onPressed: () {},
-                style: ElevatedButton.styleFrom(
-                  backgroundColor: const Color(0xFFFEC50B),
-                  padding: const EdgeInsets.symmetric(horizontal: 32, vertical: 20),
-                  shape: RoundedRectangleBorder(
-                    borderRadius: BorderRadius.circular(30),
-                  ),
+                  child: Text('View All', style: GoogleFonts.montserrat(color: Colors.black, fontSize: 18, fontWeight: FontWeight.bold)),
                 ),
-                child: Text('View All', style: GoogleFonts.montserrat(color: Colors.black, fontSize: 18, fontWeight: FontWeight.bold)),
-              ),
-            ],
-          ),
-          const SizedBox(height: 30),
-          ...popularItems.map((item) => _buildPopularCard(item: item, onTap: () {})),
-        ],
+              ],
+            ),
+            const SizedBox(height: 30),
+            Row(
+              children: popularItems
+                  .map((item) => Expanded(
+                        child: _buildPopularCard(
+                          item: item,
+                          onTap: () {
+                            Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                builder: (context) => PopularItemDetailScreen(item: item),
+                              ),
+                            );
+                          },
+                        ),
+                      ))
+                  .toList(),
+            ),
+            const SizedBox(height: 60),
+            const ReadingCorner(),
+          ],
+        ),
       ),
     );
   }
@@ -157,11 +179,11 @@ class HomeBodyWeb extends StatelessWidget {
     return GestureDetector(
       onTap: onTap,
       child: Container(
-        margin: const EdgeInsets.only(bottom: 20),
-        padding: const EdgeInsets.all(16.0),
+        margin: const EdgeInsets.symmetric(horizontal: 10),
         decoration: BoxDecoration(
           color: const Color(0xFFFEC50B),
           borderRadius: BorderRadius.circular(20),
+          border: Border.all(color: const Color(0xFFFEC50B), width: 8),
           boxShadow: [
             BoxShadow(
               color: Colors.black.withAlpha(25),
@@ -170,35 +192,34 @@ class HomeBodyWeb extends StatelessWidget {
             ),
           ],
         ),
-        child: Row(
-          children: [
-            ClipRRect(
-              borderRadius: BorderRadius.circular(12),
-              child: Image.asset(
+        child: ClipRRect(
+          borderRadius: BorderRadius.circular(12),
+          child: Column(
+            children: [
+              Image.asset(
                 item.imageUrl,
-                height: 80,
-                width: 120,
+                height: 180,
+                width: double.infinity,
                 fit: BoxFit.cover,
                 errorBuilder: (context, error, stackTrace) => Container(
-                  height: 80,
-                  width: 120,
+                  height: 180,
                   color: Colors.grey[300],
-                  child: const Icon(Icons.image_not_supported, size: 40),
+                  child: const Icon(Icons.image_not_supported, size: 50),
                 ),
               ),
-            ),
-            const SizedBox(width: 20),
-            Expanded(
-              child: Text(
-                item.title,
-                style: GoogleFonts.montserrat(
-                  fontSize: 22,
-                  fontWeight: FontWeight.w500,
-                  color: Colors.black87,
+              Padding(
+                padding: const EdgeInsets.all(16.0),
+                child: Text(
+                  item.title,
+                  style: GoogleFonts.montserrat(
+                    fontSize: 22,
+                    fontWeight: FontWeight.w500,
+                    color: Colors.black87,
+                  ),
                 ),
               ),
-            ),
-          ],
+            ],
+          ),
         ),
       ),
     );

@@ -3,6 +3,7 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:myapp/models/popular_item.dart';
 import 'package:myapp/modules/home/reading_corner.dart';
 import 'package:myapp/screens/new_screen.dart';
+import 'package:myapp/screens/popular_item_detail_screen.dart';
 import 'package:myapp/screens/reading_corner_screen.dart';
 import 'package:myapp/screens/game_galaxy_screen.dart';
 
@@ -17,128 +18,132 @@ class HomeBody extends StatelessWidget {
       PopularItem(title: 'Traffic command', imageUrl: 'assets/images/traffic_command.png'),
     ];
 
-    return Padding(
-      padding: const EdgeInsets.all(16.0),
-      child: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
-          Text(
-            'Choose What To Learn Today?',
-            style: GoogleFonts.montserrat(
-              fontSize: 22,
-              fontWeight: FontWeight.bold,
-              color: const Color(0xFF224966),
+    return SingleChildScrollView(
+      child: Padding(
+        padding: const EdgeInsets.all(16.0),
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            Text(
+              'Choose What To Learn Today?',
+              style: GoogleFonts.montserrat(
+                fontSize: 22,
+                fontWeight: FontWeight.bold,
+                color: const Color(0xFF224966),
+              ),
             ),
-          ),
-          const SizedBox(height: 20),
-          Row(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              Expanded(
-                child: Column(
-                  children: [
-                    _buildCategoryCard(
-                      title: 'Interactive Learning\nVideos',
-                      imageUrl: 'assets/images/video_icon.png',
-                      height: 240,
-                      onTap: () {
-                        Navigator.push(
-                          context,
-                          MaterialPageRoute(builder: (context) => const NewScreen()),
-                        );
-                      },
-                    ),
-                    const SizedBox(height: 20),
-                    _buildCategoryCard(
-                      title: 'Reading Corner',
-                      imageUrl: 'assets/images/abc.png',
-                      height: 240,
-                      onTap: () {
-                        Navigator.push(
-                          context,
-                          MaterialPageRoute(builder: (context) => const ReadingCornerScreen()),
-                        );
-                      },
-                    ),
-                  ],
+            const SizedBox(height: 20),
+            Row(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Expanded(
+                  child: Column(
+                    children: [
+                      _buildCategoryCard(
+                        title: 'Interactive Learning\nVideos',
+                        imageUrl: 'assets/images/video_icon.png',
+                        height: 240,
+                        onTap: () {
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(builder: (context) => const NewScreen()),
+                          );
+                        },
+                      ),
+                      const SizedBox(height: 20),
+                      _buildCategoryCard(
+                        title: 'Reading Corner',
+                        imageUrl: 'assets/images/abc.png',
+                        height: 240,
+                        onTap: () {
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(builder: (context) => const ReadingCornerScreen()),
+                          );
+                        },
+                      ),
+                    ],
+                  ),
                 ),
-              ),
-              const SizedBox(width: 20),
-              Expanded(
-                child: Column(
-                  children: [
-                    Image.asset(
-                      'assets/images/tree-iocn-right.png',
-                      height: 140,
-                    ),
-                    const SizedBox(height: 20),
-                    _buildCategoryCard(
-                      title: 'Game Galaxy',
-                      imageUrl: 'assets/images/game_icon.png',
-                      height: 240,
-                      onTap: () {
-                        Navigator.push(
-                          context,
-                          MaterialPageRoute(builder: (context) => const GameGalaxyScreen()),
-                        );
-                      },
-                    ),
-                  ],
+                const SizedBox(width: 20),
+                Expanded(
+                  child: Column(
+                    children: [
+                      Image.asset(
+                        'assets/images/tree-iocn-right.png',
+                        height: 140,
+                      ),
+                      const SizedBox(height: 20),
+                      _buildCategoryCard(
+                        title: 'Game Galaxy',
+                        imageUrl: 'assets/images/game_icon.png',
+                        height: 240,
+                        onTap: () {
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(builder: (context) => const GameGalaxyScreen()),
+                          );
+                        },
+                      ),
+                    ],
+                  ),
                 ),
-              ),
-            ],
-          ),
-          const SizedBox(height: 30),
-          Row(
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-            children: [
-              Expanded(
-                child: Row(
+              ],
+            ),
+            const SizedBox(height: 30),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [
+                Row(
                   children: [
-                    Flexible(
-                      child: Text(
-                        'Popular this Week',
-                        style: GoogleFonts.montserrat(
-                          fontSize: 24,
-                          fontWeight: FontWeight.bold,
-                          color: const Color(0xFF224966),
-                        ),
+                    Text(
+                      'Popular this Week',
+                      style: GoogleFonts.montserrat(
+                        fontSize: 20,
+                        fontWeight: FontWeight.bold,
+                        color: const Color(0xFF224966),
                       ),
                     ),
                     const SizedBox(width: 10),
                     Image.asset('assets/images/popular-icon.png', height: 30),
                   ],
                 ),
-              ),
-              ElevatedButton(
-                onPressed: () {},
-                style: ElevatedButton.styleFrom(
-                  backgroundColor: const Color(0xFFFEC50B),
-                  shape: RoundedRectangleBorder(
-                    borderRadius: BorderRadius.circular(20),
+                ElevatedButton(
+                  onPressed: () {},
+                  style: ElevatedButton.styleFrom(
+                    backgroundColor: const Color(0xFFFEC50B),
+                    shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(20),
+                    ),
                   ),
+                  child: Text('View All', style: GoogleFonts.montserrat(color: Colors.black, fontSize: 16)),
                 ),
-                child: Text('View All', style: GoogleFonts.montserrat(color: Colors.black, fontSize: 16)),
-              ),
-            ],
-          ),
-          const SizedBox(height: 20),
-          ListView.builder(
-            shrinkWrap: true,
-            physics: const NeverScrollableScrollPhysics(),
-            itemCount: popularItems.length,
-            itemBuilder: (context, index) {
-              final item = popularItems[index];
-              return _buildPopularCard(
-                title: item.title,
-                imageUrl: item.imageUrl,
-                onTap: () {},
-              );
-            },
-          ),
-          const SizedBox(height: 30),
-          const ReadingCorner(),
-        ],
+              ],
+            ),
+            const SizedBox(height: 20),
+            ListView.builder(
+              shrinkWrap: true,
+              physics: const NeverScrollableScrollPhysics(),
+              itemCount: popularItems.length,
+              itemBuilder: (context, index) {
+                final item = popularItems[index];
+                return _buildPopularCard(
+                  item: item,
+                  onTap: () {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) => PopularItemDetailScreen(item: item),
+                      ),
+                    );
+                  },
+                );
+              },
+            ),
+            const SizedBox(height: 30),
+            const ReadingCorner(),
+          ],
+        ),
       ),
     );
   }
@@ -189,8 +194,7 @@ class HomeBody extends StatelessWidget {
   }
 
   Widget _buildPopularCard({
-    required String title,
-    required String imageUrl,
+    required PopularItem item,
     required VoidCallback onTap,
   }) {
     return GestureDetector(
@@ -200,6 +204,7 @@ class HomeBody extends StatelessWidget {
         decoration: BoxDecoration(
           color: const Color(0xFFFEC50B),
           borderRadius: BorderRadius.circular(20),
+          border: Border.all(color: const Color(0xFFFEC50B), width: 8),
           boxShadow: [
             BoxShadow(
               color: Colors.black.withAlpha(25),
@@ -208,15 +213,12 @@ class HomeBody extends StatelessWidget {
             ),
           ],
         ),
-        child: Column(
-          children: [
-            ClipRRect(
-              borderRadius: const BorderRadius.only(
-                topLeft: Radius.circular(20),
-                topRight: Radius.circular(20),
-              ),
-              child: Image.asset(
-                imageUrl,
+        child: ClipRRect(
+          borderRadius: BorderRadius.circular(12),
+          child: Column(
+            children: [
+              Image.asset(
+                item.imageUrl,
                 height: 180,
                 width: double.infinity,
                 fit: BoxFit.cover,
@@ -226,19 +228,19 @@ class HomeBody extends StatelessWidget {
                   child: const Icon(Icons.image_not_supported, size: 50),
                 ),
               ),
-            ),
-            Padding(
-              padding: const EdgeInsets.all(16.0),
-              child: Text(
-                title,
-                style: GoogleFonts.montserrat(
-                  fontSize: 22,
-                  fontWeight: FontWeight.w500,
-                  color: Colors.black87,
+              Padding(
+                padding: const EdgeInsets.all(16.0),
+                child: Text(
+                  item.title,
+                  style: GoogleFonts.montserrat(
+                    fontSize: 22,
+                    fontWeight: FontWeight.w500,
+                    color: Colors.black87,
+                  ),
                 ),
               ),
-            ),
-          ],
+            ],
+          ),
         ),
       ),
     );
