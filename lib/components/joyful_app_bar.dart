@@ -20,8 +20,8 @@ class _JoyfulAppBarState extends State<JoyfulAppBar> {
       backgroundColor: Colors.white,
       elevation: 1,
       leading: Padding(
-        padding: const EdgeInsets.only(left: 16.0),
-        child: Image.asset('assets/images/joy.png', height: 40),
+        padding: const EdgeInsets.all(4.0),
+        child: Image.asset('assets/images/joy.png', height: 50, fit: BoxFit.contain),
       ),
       actions: [
         Builder(
@@ -70,8 +70,8 @@ class _JoyfulAppBarState extends State<JoyfulAppBar> {
         const Padding(
           padding: EdgeInsets.only(right: 16.0, left: 8.0),
           child: CircleAvatar(
-            backgroundColor: Colors.black12,
-            child: Icon(Icons.person, color: Colors.black),
+            backgroundColor: Colors.black,
+            child: Icon(Icons.person, color: Colors.white),
           ),
         ),
       ],

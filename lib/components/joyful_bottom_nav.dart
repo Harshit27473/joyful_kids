@@ -59,7 +59,7 @@ class _JoyfulBottomNavState extends State<JoyfulBottomNav> {
     bool isCenter = false,
   }) {
     final bool isSelected = _selectedIndex == index;
-    final double iconSize = isCenter ? 45 : 35;
+    final double iconSize = isCenter ? 80 : 40;
 
     return Expanded(
       child: Material(
