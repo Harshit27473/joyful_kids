@@ -1,5 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:myapp/modules/home/home_screen.dart';
+import 'package:myapp/screens/game_galaxy_screen.dart';
+import 'package:myapp/screens/reading_corner_screen.dart';
+import 'package:myapp/screens/new_screen.dart';
+import 'package:myapp/modules/settings/settings_screen.dart';
+import 'package:myapp/screens/about_us_screen.dart';
 
 void main() {
   runApp(const MyApp());
@@ -16,7 +21,15 @@ class MyApp extends StatelessWidget {
         primarySwatch: Colors.blue,
       ),
       debugShowCheckedModeBanner: false,
-      home: const HomeScreen(),
+      initialRoute: '/',
+      routes: {
+        '/': (context) => const HomeScreen(),
+        '/game_galaxy': (context) => const GameGalaxyScreen(),
+        '/reading_corner': (context) => const ReadingCornerScreen(),
+        '/interactive_learning': (context) => const NewScreen(),
+        '/settings': (context) => const SettingsScreen(),
+        '/about_us': (context) => const AboutUsScreen(),
+      },
     );
   }
 }

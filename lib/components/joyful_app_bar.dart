@@ -1,5 +1,6 @@
 
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 
 class JoyfulAppBar extends StatefulWidget implements PreferredSizeWidget {
   const JoyfulAppBar({super.key});
@@ -49,17 +50,17 @@ class _JoyfulAppBarState extends State<JoyfulAppBar> {
                         });
                       },
                       itemBuilder: (BuildContext context) => <PopupMenuEntry<String>>[
-                        const PopupMenuItem<String>(
+                        PopupMenuItem<String>(
                           value: 'en',
-                          child: Text('English'),
+                          child: Text('English', style: GoogleFonts.montserrat()),
                         ),
-                        const PopupMenuItem<String>(
+                        PopupMenuItem<String>(
                           value: 'fr',
-                          child: Text('French'),
+                          child: Text('French', style: GoogleFonts.montserrat()),
                         ),
-                        const PopupMenuItem<String>(
+                        PopupMenuItem<String>(
                           value: 'ar',
-                          child: Text('Arabic'),
+                          child: Text('Arabic', style: GoogleFonts.montserrat()),
                         ),
                       ],
                       child: Container(
@@ -71,7 +72,7 @@ class _JoyfulAppBarState extends State<JoyfulAppBar> {
                         ),
                         child: Text(
                           _selectedLanguage.toUpperCase(),
-                          style: const TextStyle(
+                          style: GoogleFonts.montserrat(
                             color: Colors.black,
                             fontWeight: FontWeight.bold,
                             fontSize: 16,

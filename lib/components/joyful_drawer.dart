@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
+import 'package:myapp/screens/about_us_screen.dart';
 
 class JoyfulDrawer extends StatelessWidget {
   const JoyfulDrawer({super.key});
@@ -20,9 +22,9 @@ class JoyfulDrawer extends StatelessWidget {
                 children: [
                     Image.asset('assets/images/joy.png', height: 50),
                     const SizedBox(width: 10),
-                    const Text(
+                    Text(
                         'Joyful Kids',
-                        style: TextStyle(
+                        style: GoogleFonts.montserrat(
                         color: Colors.white,
                         fontSize: 24,
                         fontWeight: FontWeight.bold
@@ -33,7 +35,7 @@ class JoyfulDrawer extends StatelessWidget {
           ),
           ListTile(
             leading: const Icon(Icons.home),
-            title: const Text('Home'),
+            title: Text('Home', style: GoogleFonts.montserrat()),
             onTap: () {
               Navigator.pop(context); // Close the drawer
               // Navigate to Home if not already there
@@ -41,11 +43,11 @@ class JoyfulDrawer extends StatelessWidget {
           ),
           ExpansionTile(
             leading: const Icon(Icons.category),
-            title: const Text('Category'),
+            title: Text('Category', style: GoogleFonts.montserrat()),
             children: <Widget>[
               ListTile(
                 contentPadding: const EdgeInsets.only(left: 30.0),
-                title: const Text('Interactive Learning'),
+                title: Text('Interactive Learning', style: GoogleFonts.montserrat()),
                 onTap: () {
                   // Handle navigation
                   Navigator.pop(context);
@@ -53,7 +55,7 @@ class JoyfulDrawer extends StatelessWidget {
               ),
               ListTile(
                 contentPadding: const EdgeInsets.only(left: 30.0),
-                title: const Text('Game Galaxy'),
+                title: Text('Game Galaxy', style: GoogleFonts.montserrat()),
                 onTap: () {
                   // Handle navigation
                   Navigator.pop(context);
@@ -61,7 +63,7 @@ class JoyfulDrawer extends StatelessWidget {
               ),
               ListTile(
                 contentPadding: const EdgeInsets.only(left: 30.0),
-                title: const Text('Reading Corner'),
+                title: Text('Reading Corner', style: GoogleFonts.montserrat()),
                 onTap: () {
                   // Handle navigation
                   Navigator.pop(context);
@@ -71,16 +73,16 @@ class JoyfulDrawer extends StatelessWidget {
           ),
           ListTile(
             leading: const Icon(Icons.info),
-            title: const Text('About Us'),
+            title: Text('About Us', style: GoogleFonts.montserrat()),
             onTap: () {
-              // Handle navigation
               Navigator.pop(context);
+              Navigator.push(context, MaterialPageRoute(builder: (context) => const AboutUsScreen()));
             },
           ),
           const Divider(),
           ListTile(
             leading: const Icon(Icons.login),
-            title: const Text('Login'),
+            title: Text('Login', style: GoogleFonts.montserrat()),
             onTap: () {
               // Handle navigation
               Navigator.pop(context);

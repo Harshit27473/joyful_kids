@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 
 class Footer extends StatelessWidget {
   const Footer({super.key});
@@ -9,10 +10,10 @@ class Footer extends StatelessWidget {
       height: 100,
       width: double.infinity,
       color: Colors.grey.shade300,
-      child: const Center(
+      child: Center(
         child: Text(
           'Footer',
-          style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
+          style: GoogleFonts.montserrat(fontSize: 18, fontWeight: FontWeight.bold),
         ),
       ),
     );

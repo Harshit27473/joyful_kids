@@ -38,7 +38,7 @@ class HomeBody extends StatelessWidget {
                 child: Column(
                   children: [
                     _buildCategoryCard(
-                      title: 'Interactive Learning Videos',
+                      title: 'Interactive Learning\nVideos',
                       imageUrl: 'assets/images/video_icon.png',
                       height: 240,
                       onTap: () {
@@ -92,29 +92,33 @@ class HomeBody extends StatelessWidget {
           Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
-              Row(
-                children: [
-                  Text(
-                    'Popular this Week',
-                    style: GoogleFonts.acme(
-                      fontSize: 24,
-                      fontWeight: FontWeight.bold,
-                      color: Colors.black87,
+              Expanded(
+                child: Row(
+                  children: [
+                    Flexible(
+                      child: Text(
+                        'Popular this Week',
+                        style: GoogleFonts.montserrat(
+                          fontSize: 24,
+                          fontWeight: FontWeight.bold,
+                          color: const Color(0xFF224966),
+                        ),
+                      ),
                     ),
-                  ),
-                  const SizedBox(width: 10),
-                  Image.asset('assets/images/popular-icon.png', height: 30),
-                ],
+                    const SizedBox(width: 10),
+                    Image.asset('assets/images/popular-icon.png', height: 30),
+                  ],
+                ),
               ),
               ElevatedButton(
                 onPressed: () {},
                 style: ElevatedButton.styleFrom(
-                  backgroundColor: const Color(0xFFFFC107),
+                  backgroundColor: const Color(0xFFFEC50B),
                   shape: RoundedRectangleBorder(
                     borderRadius: BorderRadius.circular(20),
                   ),
                 ),
-                child: const Text('View All', style: TextStyle(color: Colors.black)),
+                child: Text('View All', style: GoogleFonts.montserrat(color: Colors.black, fontSize: 16)),
               ),
             ],
           ),
@@ -151,7 +155,7 @@ class HomeBody extends StatelessWidget {
         height: height,
         padding: const EdgeInsets.all(16.0),
         decoration: BoxDecoration(
-          color: const Color(0xFFFFC107),
+          color: const Color(0xFFFEC50B),
           borderRadius: const BorderRadius.only(
             topLeft: Radius.circular(20),
             topRight: Radius.circular(20),
@@ -172,10 +176,10 @@ class HomeBody extends StatelessWidget {
             Text(
               title,
               textAlign: TextAlign.center,
-              style: GoogleFonts.acme(
-                fontSize: 18,
+              style: GoogleFonts.montserrat(
+                fontSize: 22,
                 fontWeight: FontWeight.w500,
-                color: Colors.black87,
+                color: Colors.black,
               ),
             ),
           ],
@@ -194,7 +198,7 @@ class HomeBody extends StatelessWidget {
       child: Container(
         margin: const EdgeInsets.only(bottom: 20),
         decoration: BoxDecoration(
-          color: const Color(0xFFFFC107),
+          color: const Color(0xFFFEC50B),
           borderRadius: BorderRadius.circular(20),
           boxShadow: [
             BoxShadow(
@@ -227,8 +231,8 @@ class HomeBody extends StatelessWidget {
               padding: const EdgeInsets.all(16.0),
               child: Text(
                 title,
-                style: GoogleFonts.acme(
-                  fontSize: 20,
+                style: GoogleFonts.montserrat(
+                  fontSize: 22,
                   fontWeight: FontWeight.w500,
                   color: Colors.black87,
                 ),

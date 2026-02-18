@@ -22,29 +22,33 @@ class ReadingCorner extends StatelessWidget {
         Row(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
-            Row(
-              children: [
-                Text(
-                  'Reading Corner',
-                  style: GoogleFonts.acme(
-                    fontSize: 24,
-                    fontWeight: FontWeight.bold,
-                    color: Colors.black87,
+            Flexible(
+              child: Row(
+                children: [
+                  Flexible(
+                    child: Text(
+                      'Reading Corner',
+                      style: GoogleFonts.montserrat(
+                        fontSize: 24,
+                        fontWeight: FontWeight.bold,
+                        color: const Color(0xFF224966),
+                      ),
+                    ),
                   ),
-                ),
-                const SizedBox(width: 10),
-                Image.asset('assets/images/reading_corner_icon.png', height: 30),
-              ],
+                  const SizedBox(width: 10),
+                  Image.asset('assets/images/reading_corner_icon.png', height: 30),
+                ],
+              ),
             ),
             ElevatedButton(
               onPressed: () {},
               style: ElevatedButton.styleFrom(
-                backgroundColor: const Color(0xFFFFC107),
+                backgroundColor: const Color(0xFFFEC50B),
                 shape: RoundedRectangleBorder(
                   borderRadius: BorderRadius.circular(20),
                 ),
               ),
-              child: const Text('View All', style: TextStyle(color: Colors.black)),
+              child: Text('View All', style: GoogleFonts.montserrat(color: Colors.black, fontSize: 16)),
             ),
           ],
         ),
@@ -81,7 +85,7 @@ class ReadingCorner extends StatelessWidget {
       onTap: onTap,
       child: Container(
         decoration: BoxDecoration(
-          color: Colors.white,
+          color: const Color(0xFFFEC50B),
           borderRadius: BorderRadius.circular(20),
           boxShadow: [
             BoxShadow(
@@ -116,17 +120,17 @@ class ReadingCorner extends StatelessWidget {
               child: ReadMoreText(
                 title,
                 trimLines: 2,
-                colorClickableText: Colors.blue,
+                colorClickableText: Colors.black87,
                 trimMode: TrimMode.Line,
                 trimCollapsedText: '... Read more',
                 trimExpandedText: ' Show less',
-                style: GoogleFonts.lato(
-                  fontSize: 14,
+                style: GoogleFonts.montserrat(
+                  fontSize: 16,
                   fontWeight: FontWeight.w500,
                   color: Colors.black87,
                 ),
-                moreStyle: const TextStyle(fontSize: 14, fontWeight: FontWeight.bold, color: Colors.blue),
-                lessStyle: const TextStyle(fontSize: 14, fontWeight: FontWeight.bold, color: Colors.blue),
+                moreStyle: const TextStyle(fontSize: 14, fontWeight: FontWeight.bold, color: Colors.black87),
+                lessStyle: const TextStyle(fontSize: 14, fontWeight: FontWeight.bold, color: Colors.black87),
               ),
             ),
           ],

@@ -2,17 +2,17 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
-class GameGalaxyScreen extends StatelessWidget {
-  const GameGalaxyScreen({super.key});
+class AboutUsScreen extends StatelessWidget {
+  const AboutUsScreen({super.key});
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Game Galaxy', style: GoogleFonts.montserrat()),
+        title: Text('About Us', style: GoogleFonts.montserrat()),
       ),
       body: Center(
-        child: Text('Game Galaxy Screen', style: GoogleFonts.montserrat()),
+        child: Text('About Us Screen', style: GoogleFonts.montserrat()),
       ),
     );
   }
