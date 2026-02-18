@@ -52,7 +52,7 @@ class HomeBody extends StatelessWidget {
                     _buildCategoryCard(
                       title: 'Reading Corner',
                       imageUrl: 'assets/images/abc.png',
-                      height: 200,
+                      height: 240,
                       onTap: () {
                         Navigator.push(
                           context,
@@ -75,7 +75,7 @@ class HomeBody extends StatelessWidget {
                     _buildCategoryCard(
                       title: 'Game Galaxy',
                       imageUrl: 'assets/images/game_icon.png',
-                      height: 200,
+                      height: 240,
                       onTap: () {
                         Navigator.push(
                           context,
@@ -152,7 +152,10 @@ class HomeBody extends StatelessWidget {
         padding: const EdgeInsets.all(16.0),
         decoration: BoxDecoration(
           color: const Color(0xFFFFC107),
-          borderRadius: BorderRadius.circular(20),
+          borderRadius: const BorderRadius.only(
+            topLeft: Radius.circular(20),
+            topRight: Radius.circular(20),
+          ),
           boxShadow: [
             BoxShadow(
               color: Colors.black.withAlpha(25),

@@ -32,25 +32,36 @@ class HomeBodyWeb extends StatelessWidget {
           Row(
             mainAxisAlignment: MainAxisAlignment.spaceEvenly,
             children: [
-              _buildCategoryCard(
-                title: 'Interactive Learning Videos',
-                imageUrl: 'assets/images/video_icon.png',
-                onTap: () {
-                  Navigator.push(
-                    context,
-                    MaterialPageRoute(builder: (context) => const NewScreen()),
-                  );
-                },
+              Expanded(
+                child: _buildCategoryCard(
+                  title: 'Interactive Learning Videos',
+                  imageUrl: 'assets/images/video_icon.png',
+                  height: 240,
+                  onTap: () {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(builder: (context) => const NewScreen()),
+                    );
+                  },
+                ),
               ),
-              _buildCategoryCard(
-                title: 'Reading Corner',
-                imageUrl: 'assets/images/abc.png',
-                onTap: () {},
+              const SizedBox(width: 20),
+              Expanded(
+                child: _buildCategoryCard(
+                  title: 'Reading Corner',
+                  imageUrl: 'assets/images/abc.png',
+                  height: 240,
+                  onTap: () {},
+                ),
               ),
-              _buildCategoryCard(
-                title: 'Game Galaxy',
-                imageUrl: 'assets/images/game_icon.png',
-                onTap: () {},
+              const SizedBox(width: 20),
+              Expanded(
+                child: _buildCategoryCard(
+                  title: 'Game Galaxy',
+                  imageUrl: 'assets/images/game_icon.png',
+                  height: 240,
+                  onTap: () {},
+                ),
               ),
             ],
           ),
@@ -99,15 +110,19 @@ class HomeBodyWeb extends StatelessWidget {
     required String title,
     required String imageUrl,
     required VoidCallback onTap,
+    required double height,
   }) {
     return GestureDetector(
       onTap: onTap,
       child: Container(
-        width: 200,
+        height: height,
         padding: const EdgeInsets.all(16.0),
         decoration: BoxDecoration(
           color: const Color(0xFFFFC107),
-          borderRadius: BorderRadius.circular(20),
+          borderRadius: const BorderRadius.only(
+            topLeft: Radius.circular(20),
+            topRight: Radius.circular(20),
+          ),
           boxShadow: [
             BoxShadow(
               color: Colors.black.withAlpha(25),
