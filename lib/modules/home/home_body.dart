@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:myapp/models/popular_item.dart';
 import 'package:myapp/modules/home/reading_corner.dart';
-import 'package:myapp/screens/new_screen.dart';
+import 'package:myapp/screens/interactive_learning_videos_screen.dart';
 import 'package:myapp/screens/popular_item_detail_screen.dart';
 import 'package:myapp/screens/reading_corner_screen.dart';
 import 'package:myapp/screens/game_galaxy_screen.dart';
@@ -47,7 +47,7 @@ class HomeBody extends StatelessWidget {
                         onTap: () {
                           Navigator.push(
                             context,
-                            MaterialPageRoute(builder: (context) => const NewScreen()),
+                            MaterialPageRoute(builder: (context) => const InteractiveLearningVideosScreen()),
                           );
                         },
                       ),

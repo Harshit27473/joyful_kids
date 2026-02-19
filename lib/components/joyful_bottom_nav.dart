@@ -1,29 +1,54 @@
 import 'package:flutter/material.dart';
 
-class JoyfulBottomNav extends StatefulWidget {
+class JoyfulBottomNav extends StatelessWidget {
   const JoyfulBottomNav({super.key});
 
-  @override
-  State<JoyfulBottomNav> createState() => _JoyfulBottomNavState();
-}
+  void _onItemTapped(BuildContext context, int index) {
+    final String currentRoute = ModalRoute.of(context)?.settings.name ?? '';
+    String newRoute;
 
-class _JoyfulBottomNavState extends State<JoyfulBottomNav> {
-  int _selectedIndex = 1; // Default to Home
+    switch (index) {
+      case 0:
+        newRoute = '/reading_corner';
+        break;
+      case 1:
+        newRoute = '/';
+        break;
+      case 2:
+        newRoute = '/game_galaxy';
+        break;
+      default:
+        return;
+    }
 
-  final List<String> _iconPaths = [
-    'assets/images/footer-icon-1.png',
-    'assets/images/footer-home-icon.png',
-    'assets/images/footer-game-icon.png',
-  ];
+    if (currentRoute != newRoute) {
+      Navigator.of(context).pushReplacementNamed(newRoute);
+    }
+  }
 
-  void _onItemTapped(int index) {
-    setState(() {
-      _selectedIndex = index;
-    });
+  int _getSelectedIndex(BuildContext context) {
+    final String currentRoute = ModalRoute.of(context)?.settings.name ?? '';
+    if (currentRoute == '/') {
+      return 1;
+    } else if (currentRoute == '/reading_corner') {
+      return 0;
+    } else if (currentRoute == '/game_galaxy') {
+      return 2;
+    }
+    // Default to home if the route is not recognized
+    return 1;
   }
 
   @override
   Widget build(BuildContext context) {
+    final int selectedIndex = _getSelectedIndex(context);
+
+    final List<String> iconPaths = [
+      'assets/images/footer-icon-1.png',
+      'assets/images/footer-home-icon.png',
+      'assets/images/footer-game-icon.png',
+    ];
+
     return Container(
       height: 80,
       decoration: const BoxDecoration(
@@ -42,10 +67,12 @@ class _JoyfulBottomNavState extends State<JoyfulBottomNav> {
       ),
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceAround,
-        children: List.generate(_iconPaths.length, (index) {
+        children: List.generate(iconPaths.length, (index) {
           return _buildNavItem(
-            imagePath: _iconPaths[index],
+            context: context,
+            imagePath: iconPaths[index],
             index: index,
+            isSelected: selectedIndex == index,
             isCenter: index == 1,
           );
         }),
@@ -54,11 +81,12 @@ class _JoyfulBottomNavState extends State<JoyfulBottomNav> {
   }
 
   Widget _buildNavItem({
+    required BuildContext context,
     required String imagePath,
     required int index,
+    required bool isSelected,
     bool isCenter = false,
   }) {
-    final bool isSelected = _selectedIndex == index;
     final double iconSize = isCenter ? 80 : 40;
 
     return Expanded(
@@ -66,7 +94,7 @@ class _JoyfulBottomNavState extends State<JoyfulBottomNav> {
         color: Colors.transparent,
         child: InkWell(
           borderRadius: BorderRadius.circular(30),
-          onTap: () => _onItemTapped(index),
+          onTap: () => _onItemTapped(context, index),
           child: Padding(
             padding: const EdgeInsets.symmetric(vertical: 12.0),
             child: Opacity(

@@ -1,4 +1,3 @@
-
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
@@ -25,12 +24,20 @@ class _JoyfulAppBarState extends State<JoyfulAppBar> {
           child: Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
-              Padding(
-                padding: const EdgeInsets.only(left: 8.0, top: 8.0, bottom: 8.0),
-                child: SizedBox(
-                  height: 54,
-                  width: 150,
-                  child: Image.asset('assets/images/joy.png', fit: BoxFit.contain),
+              GestureDetector(
+                onTap: () {
+                  // Navigate to the home page if not already there
+                  if (ModalRoute.of(context)?.settings.name != '/') {
+                    Navigator.of(context).pushReplacementNamed('/');
+                  }
+                },
+                child: Padding(
+                  padding: const EdgeInsets.only(left: 8.0, top: 8.0, bottom: 8.0),
+                  child: SizedBox(
+                    height: 54,
+                    width: 150,
+                    child: Image.asset('assets/images/joy.png', fit: BoxFit.contain),
+                  ),
                 ),
               ),
               Padding(
