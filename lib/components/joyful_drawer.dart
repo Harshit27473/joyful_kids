@@ -8,13 +8,13 @@ class JoyfulDrawer extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Drawer(
-      backgroundColor: Colors.grey[900],
+      backgroundColor: Colors.white,
       child: ListView(
         padding: EdgeInsets.zero,
         children: <Widget>[
           DrawerHeader(
             decoration: BoxDecoration(
-              color: Colors.grey[800],
+              color: Colors.grey[200],
             ),
             child: Row(
                 children: [
@@ -23,22 +23,22 @@ class JoyfulDrawer extends StatelessWidget {
             ),
           ),
           ListTile(
-            leading: const Icon(Icons.home, color: Colors.grey),
-            title: Text('Home', style: GoogleFonts.montserrat(color: Colors.grey[400])),
+            leading: const Icon(Icons.home, color: Colors.black54),
+            title: Text('Home', style: GoogleFonts.montserrat(color: Colors.black87)),
             onTap: () {
               Navigator.pop(context); // Close the drawer
               // Navigate to Home if not already there
             },
           ),
           ExpansionTile(
-            leading: const Icon(Icons.category, color: Colors.grey),
-            iconColor: Colors.grey,
-            collapsedIconColor: Colors.grey,
-            title: Text('Category', style: GoogleFonts.montserrat(color: Colors.grey[400])),
+            leading: const Icon(Icons.category, color: Colors.black54),
+            iconColor: Colors.black54,
+            collapsedIconColor: Colors.black54,
+            title: Text('Category', style: GoogleFonts.montserrat(color: Colors.black87)),
             children: <Widget>[
               ListTile(
                 contentPadding: const EdgeInsets.only(left: 30.0),
-                title: Text('Interactive Learning', style: GoogleFonts.montserrat(color: Colors.grey[400])),
+                title: Text('Interactive Learning', style: GoogleFonts.montserrat(color: Colors.black87)),
                 onTap: () {
                   // Handle navigation
                   Navigator.pop(context);
@@ -46,7 +46,7 @@ class JoyfulDrawer extends StatelessWidget {
               ),
               ListTile(
                 contentPadding: const EdgeInsets.only(left: 30.0),
-                title: Text('Game Galaxy', style: GoogleFonts.montserrat(color: Colors.grey[400])),
+                title: Text('Game Galaxy', style: GoogleFonts.montserrat(color: Colors.black87)),
                 onTap: () {
                   // Handle navigation
                   Navigator.pop(context);
@@ -54,7 +54,7 @@ class JoyfulDrawer extends StatelessWidget {
               ),
               ListTile(
                 contentPadding: const EdgeInsets.only(left: 30.0),
-                title: Text('Reading Corner', style: GoogleFonts.montserrat(color: Colors.grey[400])),
+                title: Text('Reading Corner', style: GoogleFonts.montserrat(color: Colors.black87)),
                 onTap: () {
                   // Handle navigation
                   Navigator.pop(context);
@@ -63,8 +63,8 @@ class JoyfulDrawer extends StatelessWidget {
             ],
           ),
           ListTile(
-            leading: const Icon(Icons.info, color: Colors.grey),
-            title: Text('About Us', style: GoogleFonts.montserrat(color: Colors.grey[400])),
+            leading: const Icon(Icons.info, color: Colors.black54),
+            title: Text('About Us', style: GoogleFonts.montserrat(color: Colors.black87)),
             onTap: () {
               Navigator.pop(context);
               Navigator.push(context, MaterialPageRoute(builder: (context) => const AboutUsScreen()));
@@ -72,8 +72,8 @@ class JoyfulDrawer extends StatelessWidget {
           ),
           const Divider(color: Colors.grey),
           ListTile(
-            leading: const Icon(Icons.login, color: Colors.grey),
-            title: Text('Login', style: GoogleFonts.montserrat(color: Colors.grey[400])),
+            leading: const Icon(Icons.login, color: Colors.black54),
+            title: Text('Login', style: GoogleFonts.montserrat(color: Colors.black87)),
             onTap: () {
               // Handle navigation
               Navigator.pop(context);
