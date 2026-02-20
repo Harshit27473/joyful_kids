@@ -34,24 +34,34 @@ class InteractiveLearningVideosScreen extends StatelessWidget {
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
                     Flexible(
-                      child: Column(
-                        crossAxisAlignment: CrossAxisAlignment.start,
+                      child: Row(
                         children: [
-                          Text(
-                            'Interactive',
-                            style: GoogleFonts.montserrat(
-                              fontSize: 24,
-                              fontWeight: FontWeight.bold,
-                              color: AppColors.textColor,
-                            ),
+                          Column(
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            children: [
+                              Text(
+                                'Interactive',
+                                style: GoogleFonts.montserrat(
+                                  fontSize: 20,
+                                  fontWeight: FontWeight.bold,
+                                  color: AppColors.textColor,
+                                ),
+                              ),
+                              Text(
+                                'Learning Videos',
+                                style: GoogleFonts.montserrat(
+                                  fontSize: 20,
+                                  fontWeight: FontWeight.bold,
+                                  color: AppColors.textColor,
+                                ),
+                              ),
+                            ],
                           ),
-                          Text(
-                            'Learning Videos',
-                            style: GoogleFonts.montserrat(
-                              fontSize: 24,
-                              fontWeight: FontWeight.bold,
-                              color: AppColors.textColor,
-                            ),
+                          const SizedBox(width: 8),
+                          Image.network(
+                            'https://joyfulkids.arshiya.info/kids/images/intrective-video-icon.png',
+                            width: 40,
+                            height: 40,
                           ),
                         ],
                       ),
