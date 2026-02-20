@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:myapp/components/app_footer.dart';
 import 'package:myapp/components/joyful_app_bar.dart';
 import 'package:myapp/components/joyful_bottom_nav.dart';
 import 'package:myapp/components/joyful_drawer.dart';
@@ -92,6 +93,7 @@ class InteractiveLearningVideosScreen extends StatelessWidget {
                   },
                 ),
               ),
+              const AppFooter(),
             ],
           ),
         ),

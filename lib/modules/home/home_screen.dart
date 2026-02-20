@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
+import 'package:myapp/components/app_footer.dart';
 import 'package:myapp/components/joyful_app_bar.dart';
 import 'package:myapp/components/joyful_bottom_nav.dart';
 import 'package:myapp/components/joyful_drawer.dart';
 import 'package:myapp/modules/home/home_banner.dart';
 import 'package:myapp/modules/home/home_body.dart';
 import 'package:myapp/modules/home/home_body_web.dart';
-import 'package:myapp/modules/home/footer.dart';
 import 'package:myapp/utils/constants/image_paths.dart';
 
 class HomeScreen extends StatefulWidget {

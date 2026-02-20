@@ -1,5 +1,7 @@
+
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:myapp/screens/login_screen.dart';
 
 class JoyfulAppBar extends StatefulWidget implements PreferredSizeWidget {
   const JoyfulAppBar({super.key});
@@ -87,11 +89,19 @@ class _JoyfulAppBarState extends State<JoyfulAppBar> {
                         ),
                       ),
                     ),
-                    const Padding(
-                      padding: EdgeInsets.only(left: 8.0),
-                      child: CircleAvatar(
-                        backgroundColor: Colors.black,
-                        child: Icon(Icons.person, color: Colors.white),
+                    GestureDetector(
+                      onTap: () {
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(builder: (context) => const LoginScreen()),
+                        );
+                      },
+                      child: const Padding(
+                        padding: EdgeInsets.only(left: 8.0),
+                        child: CircleAvatar(
+                          backgroundColor: Colors.black,
+                          child: Icon(Icons.person, color: Colors.white),
+                        ),
                       ),
                     ),
                   ],
