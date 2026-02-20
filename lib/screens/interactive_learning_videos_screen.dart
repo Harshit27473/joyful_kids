@@ -6,6 +6,7 @@ import 'package:myapp/components/joyful_drawer.dart';
 import 'package:myapp/data/video_data.dart';
 import 'package:myapp/modules/videos/interactive_videos_banner.dart';
 import 'package:myapp/modules/videos/video_card.dart';
+import 'package:myapp/utils/constants/app_colors.dart';
 
 class InteractiveLearningVideosScreen extends StatelessWidget {
   const InteractiveLearningVideosScreen({super.key});
@@ -40,7 +41,7 @@ class InteractiveLearningVideosScreen extends StatelessWidget {
                             style: GoogleFonts.montserrat(
                               fontSize: 24,
                               fontWeight: FontWeight.bold,
-                              color: const Color(0xFF333333),
+                              color: AppColors.textColor,
                             ),
                           ),
                           Text(
@@ -48,7 +49,7 @@ class InteractiveLearningVideosScreen extends StatelessWidget {
                             style: GoogleFonts.montserrat(
                               fontSize: 24,
                               fontWeight: FontWeight.bold,
-                              color: const Color(0xFF333333),
+                              color: AppColors.textColor,
                             ),
                           ),
                         ],
@@ -57,7 +58,7 @@ class InteractiveLearningVideosScreen extends StatelessWidget {
                     ElevatedButton(
                       onPressed: () {},
                       style: ElevatedButton.styleFrom(
-                        backgroundColor: const Color(0xFFFFD700), // Yellow color
+                        backgroundColor: AppColors.accentColor, // Yellow color
                         shape: RoundedRectangleBorder(
                           borderRadius: BorderRadius.circular(20.0),
                         ),
@@ -67,7 +68,7 @@ class InteractiveLearningVideosScreen extends StatelessWidget {
                         'View All',
                         style: GoogleFonts.montserrat(
                           fontWeight: FontWeight.bold,
-                          color: const Color(0xFF333333),
+                          color: AppColors.textColor,
                         ),
                       ),
                     ),

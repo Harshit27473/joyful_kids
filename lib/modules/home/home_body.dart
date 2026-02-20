@@ -6,6 +6,8 @@ import 'package:myapp/screens/interactive_learning_videos_screen.dart';
 import 'package:myapp/screens/popular_item_detail_screen.dart';
 import 'package:myapp/screens/reading_corner_screen.dart';
 import 'package:myapp/screens/game_galaxy_screen.dart';
+import 'package:myapp/utils/constants/app_colors.dart';
+import 'package:myapp/utils/constants/image_paths.dart';
 
 class HomeBody extends StatelessWidget {
   const HomeBody({super.key});
@@ -16,9 +18,9 @@ class HomeBody extends StatelessWidget {
     final screenHeight = MediaQuery.of(context).size.height;
 
     final List<PopularItem> popularItems = [
-      PopularItem(title: 'Soccer Championship', imageUrl: 'assets/images/soccer_championship.png'),
-      PopularItem(title: '7 Continents of the world', imageUrl: 'assets/images/7_continents.png'),
-      PopularItem(title: 'Traffic command', imageUrl: 'assets/images/traffic_command.png'),
+      PopularItem(title: 'Soccer Championship', imageUrl: ImagePaths.soccerChampionship),
+      PopularItem(title: '7 Continents of the world', imageUrl: ImagePaths.continents),
+      PopularItem(title: 'Traffic command', imageUrl: ImagePaths.trafficCommand),
     ];
 
     return SingleChildScrollView(
@@ -35,7 +37,7 @@ class HomeBody extends StatelessWidget {
                 style: GoogleFonts.montserrat(
                   fontSize: screenWidth * 0.055,
                   fontWeight: FontWeight.bold,
-                  color: const Color(0xFF224966),
+                  color: AppColors.textColor,
                 ),
               ),
             ),
@@ -51,7 +53,7 @@ class HomeBody extends StatelessWidget {
                         child: _buildCategoryCard(
                           context,
                           title: 'Interactive Learning\nVideos',
-                          imageUrl: 'assets/images/video_icon.png',
+                          imageUrl: ImagePaths.videoIcon,
                           onTap: () {
                             Navigator.push(
                               context,
@@ -65,7 +67,7 @@ class HomeBody extends StatelessWidget {
                         child: _buildCategoryCard(
                           context,
                           title: 'Reading Corner',
-                          imageUrl: 'assets/images/abc.png',
+                          imageUrl: ImagePaths.abc,
                           onTap: () {
                             Navigator.push(
                               context,
@@ -79,7 +81,7 @@ class HomeBody extends StatelessWidget {
                         child: _buildCategoryCard(
                           context,
                           title: 'Game Galaxy',
-                          imageUrl: 'assets/images/game_icon.png',
+                          imageUrl: ImagePaths.gameIcon,
                           onTap: () {
                             Navigator.push(
                               context,
@@ -101,7 +103,7 @@ class HomeBody extends StatelessWidget {
                             _buildCategoryCard(
                               context,
                               title: 'Interactive Learning\nVideos',
-                              imageUrl: 'assets/images/video_icon.png',
+                              imageUrl: ImagePaths.videoIcon,
                               onTap: () {
                                 Navigator.push(
                                   context,
@@ -113,7 +115,7 @@ class HomeBody extends StatelessWidget {
                             _buildCategoryCard(
                               context,
                               title: 'Reading Corner',
-                              imageUrl: 'assets/images/abc.png',
+                              imageUrl: ImagePaths.abc,
                               onTap: () {
                                 Navigator.push(
                                   context,
@@ -129,14 +131,14 @@ class HomeBody extends StatelessWidget {
                         child: Column(
                           children: [
                             Image.asset(
-                              'assets/images/tree-iocn-right.png',
+                              ImagePaths.treeIocnRight,
                               height: screenHeight * 0.18,
                             ),
                             SizedBox(height: screenHeight * 0.025),
                             _buildCategoryCard(
                               context,
                               title: 'Game Galaxy',
-                              imageUrl: 'assets/images/game_icon.png',
+                              imageUrl: ImagePaths.gameIcon,
                               onTap: () {
                                 Navigator.push(
                                   context,
@@ -163,17 +165,17 @@ class HomeBody extends StatelessWidget {
                       style: GoogleFonts.montserrat(
                         fontSize: screenWidth * 0.05,
                         fontWeight: FontWeight.bold,
-                        color: const Color(0xFF224966),
+                        color: AppColors.textColor,
                       ),
                     ),
                     const SizedBox(width: 5),
-                    Image.asset('assets/images/popular-icon.png', height: 30),
+                    Image.asset(ImagePaths.popularIcon, height: 30),
                   ],
                 ),
                 ElevatedButton(
                   onPressed: () {},
                   style: ElevatedButton.styleFrom(
-                    backgroundColor: const Color(0xFFFEC50B),
+                    backgroundColor: AppColors.accentColor,
                     shape: RoundedRectangleBorder(
                       borderRadius: BorderRadius.circular(20),
                     ),
@@ -205,6 +207,7 @@ class HomeBody extends StatelessWidget {
             ),
             SizedBox(height: screenHeight * 0.04),
             const ReadingCorner(),
+            SizedBox(height: screenHeight * 0.05),
           ],
         ),
       ),
@@ -226,7 +229,7 @@ class HomeBody extends StatelessWidget {
         height: screenHeight * 0.28,
         padding: const EdgeInsets.all(16.0),
         decoration: BoxDecoration(
-          color: const Color(0xFFFEC50B),
+          color: AppColors.accentColor,
           borderRadius: const BorderRadius.only(
             topLeft: Radius.circular(20),
             topRight: Radius.circular(20),
@@ -270,9 +273,9 @@ class HomeBody extends StatelessWidget {
       child: Container(
         margin: EdgeInsets.only(bottom: screenHeight * 0.025),
         decoration: BoxDecoration(
-          color: const Color(0xFFFEC50B),
+          color: AppColors.accentColor,
           borderRadius: BorderRadius.circular(20),
-          border: Border.all(color: const Color(0xFFFEC50B), width: 8),
+          border: Border.all(color: AppColors.accentColor, width: 8),
           boxShadow: [
             BoxShadow(
               color: Colors.black.withAlpha(25),

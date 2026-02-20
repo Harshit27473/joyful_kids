@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:myapp/utils/constants/image_paths.dart';
 
 class HomeBanner extends StatelessWidget {
   const HomeBanner({super.key});
@@ -15,7 +16,7 @@ class HomeBanner extends StatelessWidget {
         child: ClipRRect(
           borderRadius: BorderRadius.circular(20.0),
           child: Image.asset(
-            'assets/images/home_en.jpg',
+            ImagePaths.homeEn,
             fit: BoxFit.cover,
           ),
         ),

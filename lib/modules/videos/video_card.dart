@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:myapp/models/video.dart';
+import 'package:myapp/utils/constants/app_colors.dart';
 
 class VideoCard extends StatelessWidget {
   final Video video;
@@ -33,12 +34,12 @@ class VideoCard extends StatelessWidget {
                 // Play button
                 Container(
                   decoration: const BoxDecoration(
-                    color: Color.fromRGBO(0, 0, 0, 0.3),
+                    color: AppColors.overlayColor,
                     shape: BoxShape.circle,
                   ),
                   child: const Icon(
                     Icons.play_arrow,
-                    color: Colors.white,
+                    color: AppColors.white,
                     size: 40,
                   ),
                 ),

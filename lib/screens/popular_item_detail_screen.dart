@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:myapp/models/popular_item.dart';
+import 'package:myapp/utils/constants/app_colors.dart';
 
 class PopularItemDetailScreen extends StatelessWidget {
   final PopularItem item;
@@ -15,11 +16,11 @@ class PopularItemDetailScreen extends StatelessWidget {
           item.title,
           style: GoogleFonts.montserrat(
             fontWeight: FontWeight.bold,
-            color: const Color(0xFF224966),
+            color: AppColors.textColor,
           ),
         ),
-        backgroundColor: const Color(0xFFFEC50B),
-        iconTheme: const IconThemeData(color: Color(0xFF224966)),
+        backgroundColor: AppColors.accentColor,
+        iconTheme: const IconThemeData(color: AppColors.textColor),
       ),
       body: Center(
         child: Padding(
@@ -46,7 +47,7 @@ class PopularItemDetailScreen extends StatelessWidget {
                 style: GoogleFonts.montserrat(
                   fontSize: 28,
                   fontWeight: FontWeight.bold,
-                  color: const Color(0xFF224966),
+                  color: AppColors.textColor,
                 ),
               ),
             ],

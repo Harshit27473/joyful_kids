@@ -6,6 +6,8 @@ import 'package:myapp/screens/interactive_learning_videos_screen.dart';
 import 'package:myapp/screens/popular_item_detail_screen.dart';
 import 'package:myapp/screens/reading_corner_screen.dart';
 import 'package:myapp/screens/game_galaxy_screen.dart';
+import 'package:myapp/utils/constants/app_colors.dart';
+import 'package:myapp/utils/constants/image_paths.dart';
 
 class HomeBodyWeb extends StatelessWidget {
   const HomeBodyWeb({super.key});
@@ -13,9 +15,9 @@ class HomeBodyWeb extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final List<PopularItem> popularItems = [
-      PopularItem(title: 'Soccer Championship', imageUrl: 'assets/images/soccer_championship.png'),
-      PopularItem(title: '7 Continents of the world', imageUrl: 'assets/images/7_continents.png'),
-      PopularItem(title: 'Traffic command', imageUrl: 'assets/images/traffic_command.png'),
+      PopularItem(title: 'Soccer Championship', imageUrl: ImagePaths.soccerChampionship),
+      PopularItem(title: '7 Continents of the world', imageUrl: ImagePaths.continents),
+      PopularItem(title: 'Traffic command', imageUrl: ImagePaths.trafficCommand),
     ];
 
     return SingleChildScrollView(
@@ -29,7 +31,7 @@ class HomeBodyWeb extends StatelessWidget {
               style: GoogleFonts.montserrat(
                 fontSize: 30,
                 fontWeight: FontWeight.bold,
-                color: const Color(0xFF224966),
+                color: AppColors.textColor,
               ),
             ),
             const SizedBox(height: 40),
@@ -39,7 +41,7 @@ class HomeBodyWeb extends StatelessWidget {
                 Expanded(
                   child: _buildCategoryCard(
                     title: 'Interactive Learning\nVideos',
-                    imageUrl: 'assets/images/video_icon.png',
+                    imageUrl: ImagePaths.videoIcon,
                     onTap: () {
                       Navigator.push(
                         context,
@@ -52,7 +54,7 @@ class HomeBodyWeb extends StatelessWidget {
                 Expanded(
                   child: _buildCategoryCard(
                     title: 'Reading Corner',
-                    imageUrl: 'assets/images/abc.png',
+                    imageUrl: ImagePaths.abc,
                     onTap: () {
                       Navigator.push(
                         context,
@@ -65,7 +67,7 @@ class HomeBodyWeb extends StatelessWidget {
                 Expanded(
                   child: _buildCategoryCard(
                     title: 'Game Galaxy',
-                    imageUrl: 'assets/images/game_icon.png',
+                    imageUrl: ImagePaths.gameIcon,
                     onTap: () {
                       Navigator.push(
                         context,
@@ -87,17 +89,17 @@ class HomeBodyWeb extends StatelessWidget {
                       style: GoogleFonts.montserrat(
                         fontSize: 28,
                         fontWeight: FontWeight.bold,
-                        color: const Color(0xFF224966),
+                        color: AppColors.textColor,
                       ),
                     ),
                     const SizedBox(width: 20),
-                    Image.asset('assets/images/popular-icon.png', height: 40),
+                    Image.asset(ImagePaths.popularIcon, height: 40),
                   ],
                 ),
                 ElevatedButton(
                   onPressed: () {},
                   style: ElevatedButton.styleFrom(
-                    backgroundColor: const Color(0xFFFEC50B),
+                    backgroundColor: AppColors.accentColor,
                     padding: const EdgeInsets.symmetric(horizontal: 32, vertical: 20),
                     shape: RoundedRectangleBorder(
                       borderRadius: BorderRadius.circular(30),
@@ -143,7 +145,7 @@ class HomeBodyWeb extends StatelessWidget {
       child: Container(
         padding: const EdgeInsets.all(24.0),
         decoration: BoxDecoration(
-          color: const Color(0xFFFEC50B),
+          color: AppColors.accentColor,
           borderRadius: BorderRadius.circular(20),
           boxShadow: [
             BoxShadow(
@@ -181,9 +183,9 @@ class HomeBodyWeb extends StatelessWidget {
       child: Container(
         margin: const EdgeInsets.symmetric(horizontal: 10),
         decoration: BoxDecoration(
-          color: const Color(0xFFFEC50B),
+          color: AppColors.accentColor,
           borderRadius: BorderRadius.circular(20),
-          border: Border.all(color: const Color(0xFFFEC50B), width: 8),
+          border: Border.all(color: AppColors.accentColor, width: 8),
           boxShadow: [
             BoxShadow(
               color: Colors.black.withAlpha(25),

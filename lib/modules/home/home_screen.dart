@@ -6,6 +6,7 @@ import 'package:myapp/modules/home/home_banner.dart';
 import 'package:myapp/modules/home/home_body.dart';
 import 'package:myapp/modules/home/home_body_web.dart';
 import 'package:myapp/modules/home/footer.dart';
+import 'package:myapp/utils/constants/image_paths.dart';
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({super.key});
@@ -24,7 +25,7 @@ class _HomeScreenState extends State<HomeScreen> {
       body: Container(
         decoration: const BoxDecoration(
           image: DecorationImage(
-            image: AssetImage("assets/images/body_background.png"),
+            image: AssetImage(ImagePaths.bodyBackground),
             fit: BoxFit.cover,
           ),
         ),

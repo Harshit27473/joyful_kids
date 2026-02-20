@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:myapp/utils/constants/app_colors.dart';
+import 'package:myapp/utils/constants/image_paths.dart';
 
 class AppFooter extends StatelessWidget {
   const AppFooter({super.key});
@@ -8,14 +10,14 @@ class AppFooter extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       width: double.infinity,
-      color: const Color(0xFFF9E7EA),
+      color: Colors.transparent,
       child: Stack(
         alignment: Alignment.center,
         children: [
           Column(
             children: [
               Image.asset(
-                'assets/images/footer_background.jpeg',
+                ImagePaths.footerBackground,
                 fit: BoxFit.fitWidth,
                 width: double.infinity,
               ),
@@ -38,7 +40,7 @@ class AppFooter extends StatelessWidget {
                   'Copyright@2025. Joyfulkids',
                   style: GoogleFonts.lato(
                     fontSize: 16,
-                    color: const Color(0xFF5D4037),
+                    color: AppColors.textColor,
                     fontWeight: FontWeight.w500,
                   ),
                 ),
@@ -70,7 +72,7 @@ class AppFooter extends StatelessWidget {
         text,
         style: GoogleFonts.lato(
           fontSize: 14,
-          color: const Color(0xFF5D4037),
+          color: AppColors.textColor,
           fontWeight: FontWeight.w500,
         ),
       ),
@@ -82,7 +84,7 @@ class AppFooter extends StatelessWidget {
       padding: EdgeInsets.symmetric(horizontal: 10),
       child: Text(
         '|',
-        style: TextStyle(fontSize: 14, color: Color(0xFF5D4037)),
+        style: TextStyle(fontSize: 14, color: AppColors.textColor),
       ),
     );
   }

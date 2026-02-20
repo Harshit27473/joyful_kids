@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:myapp/models/reading_item.dart';
+import 'package:myapp/utils/constants/app_colors.dart';
+import 'package:myapp/utils/constants/image_paths.dart';
 
 class ReadingCorner extends StatelessWidget {
   const ReadingCorner({super.key});
@@ -39,17 +41,17 @@ class ReadingCorner extends StatelessWidget {
                   style: GoogleFonts.montserrat(
                     fontSize: 20,
                     fontWeight: FontWeight.bold,
-                    color: const Color(0xFF224966),
+                    color: AppColors.textColor,
                   ),
                 ),
                 const SizedBox(width: 10),
-                Image.asset('assets/images/reading_corner_icon.png', height: 30),
+                Image.asset(ImagePaths.readingCornerIcon, height: 30),
               ],
             ),
             ElevatedButton(
               onPressed: () {},
               style: ElevatedButton.styleFrom(
-                backgroundColor: const Color(0xFFFEC50B),
+                backgroundColor: AppColors.accentColor,
                 shape: RoundedRectangleBorder(
                   borderRadius: BorderRadius.circular(20),
                 ),

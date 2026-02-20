@@ -43,7 +43,45 @@ This document outlines the design, features, and implementation details of the J
     *   **`Popular this Week` Section:**
         *   Adjusted the spacing between the "Popular this Week" text and the adjacent icon to improve visual alignment.
 
+### Version 1.3
+
+*   **Code Health & Maintainability:**
+    *   **Centralized Constants:** To improve code quality and maintainability, all hardcoded color and image path strings have been externalized into constant files.
+        *   Created `lib/utils/constants/app_colors.dart` to define a central palette for all colors used throughout the application.
+        *   Created `lib/utils/constants/image_paths.dart` to manage all asset image paths in a single location.
+    *   **Global Refactoring:** The entire codebase was systematically refactored to consume values from the new constant files. This impacts the following files:
+        *   `lib/components/footer.dart`
+        *   `lib/components/joyful_app_bar.dart`
+        *   `lib/modules/home/home_banner.dart`
+        *   `lib/modules/home/home_body.dart`
+        *   `lib/modules/home/reading_corner.dart`
+        *   `lib/modules/videos/video_card.dart`
+        *   `lib/screens/game_galaxy_screen.dart`
+        *   `lib/screens/interactive_learning_videos_screen.dart`
+        *   `lib/screens/popular_item_detail_screen.dart`
+        *   `lib/screens/reading_corner_screen.dart`
+    *   **Cleanup:** The unused `lib/utils/colors.dart` file was removed after the refactoring was complete.
+
+### Version 1.4
+
+*   **Drawer Refinement:**
+    *   Resolved an unused import warning in `lib/components/joyful_drawer.dart` by refactoring the component to use the centralized color constants from `lib/utils/constants/app_colors.dart`.
+
+### Version 1.5
+
+*   **Code Health:**
+    *   Addressed a deprecated member usage warning in `lib/modules/home/footer.dart` by replacing the `withOpacity()` method with the recommended `withAlpha()` for setting color opacity.
+
+### Version 1.6
+
+*   **UI Spacing:**
+    *   Added vertical spacing between the `ReadingCorner` section and the `AppFooter` to improve the visual separation and overall layout of the home screen. This was achieved by adding a `SizedBox` in `lib/modules/home/home_body.dart`.
+
+### Version 1.7
+
+*   **Footer Background:**
+    *   The background color of the footer has been set to transparent to remove the distracting pink hue and create a cleaner, more integrated look with the page background.
+
 ## Current Plan
 
-*   **Implement Responsive Layout:**
-    *   Refactor the UI to ensure it adapts to various screen sizes using `LayoutBuilder` and `MediaQuery`.
+The UI has been improved by adding a visual gap between the main content and the footer and correcting the footer's background color. The codebase is up-to-date with the latest best practices. The next steps will focus on introducing new features or addressing any outstanding UI/UX enhancements.
