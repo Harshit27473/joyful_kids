@@ -1,8 +1,11 @@
-
 import 'package:flutter/material.dart';
-import 'package:flutter_svg/flutter_svg.dart';
+import 'package:google_fonts/google_fonts.dart';
+import 'package:myapp/components/app_footer.dart';
+import 'package:myapp/components/breadcrumb.dart';
 import 'package:myapp/components/joyful_app_bar.dart';
 import 'package:myapp/components/joyful_bottom_nav.dart';
+import 'package:myapp/components/joyful_drawer.dart';
+import 'package:myapp/modules/account/account_banner.dart';
 
 class LoginScreen extends StatelessWidget {
   const LoginScreen({super.key});
@@ -11,83 +14,74 @@ class LoginScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: const JoyfulAppBar(),
-      body: Stack(
-        children: [
-          // Background image
-          Container(
-            decoration: const BoxDecoration(
-              image: DecorationImage(
-                image: AssetImage('assets/images/home_en.jpg'),
-                fit: BoxFit.cover,
-              ),
-            ),
+      drawer: const JoyfulDrawer(),
+      body: Container(
+        decoration: const BoxDecoration(
+          image: DecorationImage(
+            image: NetworkImage('https://joyfulkids.arshiya.info/kids/back.png'),
+            fit: BoxFit.cover,
           ),
-          // Login form
-          Center(
-            child: SingleChildScrollView(
-              padding: const EdgeInsets.all(24.0),
-              child: Column(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: [
-                  // Logo
-                  SvgPicture.asset(
-                    'assets/images/joy.svg',
-                    height: 100,
+        ),
+        child: SingleChildScrollView(
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.stretch,
+            children: [
+              const AccountBanner(),
+              const Breadcrumb(text: 'Home / Login'),
+              Padding(
+                padding: const EdgeInsets.all(24.0),
+                child: Container(
+                  padding: const EdgeInsets.all(24.0),
+                  decoration: BoxDecoration(
+                    color: Colors.white,
+                    borderRadius: BorderRadius.circular(20.0),
                   ),
-                  const SizedBox(height: 48),
-                  // Email field
-                  TextFormField(
-                    decoration: InputDecoration(
-                      hintText: 'Email',
-                      filled: true,
-                      fillColor: Colors.white.withAlpha(204),
-                      border: OutlineInputBorder(
-                        borderRadius: BorderRadius.circular(12),
-                        borderSide: BorderSide.none,
+                  child: Column(
+                    children: [
+                      Text(
+                        'Login',
+                        style: GoogleFonts.montserrat(
+                          fontSize: 24,
+                          fontWeight: FontWeight.bold,
+                        ),
                       ),
-                    ),
-                  ),
-                  const SizedBox(height: 16),
-                  // Password field
-                  TextFormField(
-                    obscureText: true,
-                    decoration: InputDecoration(
-                      hintText: 'Password',
-                      filled: true,
-                      fillColor: Colors.white.withAlpha(204),
-                      border: OutlineInputBorder(
-                        borderRadius: BorderRadius.circular(12),
-                        borderSide: BorderSide.none,
+                      const SizedBox(height: 20),
+                      TextField(
+                        decoration: InputDecoration(
+                          labelText: 'Login',
+                          border: OutlineInputBorder(
+                            borderRadius: BorderRadius.circular(12.0),
+                          ),
+                        ),
                       ),
-                    ),
-                  ),
-                  const SizedBox(height: 24),
-                  // Login button
-                  ElevatedButton(
-                    onPressed: () {},
-                    style: ElevatedButton.styleFrom(
-                      padding: const EdgeInsets.symmetric(
-                          horizontal: 48, vertical: 16),
-                      shape: RoundedRectangleBorder(
-                        borderRadius: BorderRadius.circular(12),
+                      const SizedBox(height: 20),
+                      ElevatedButton(
+                        onPressed: () {},
+                        style: ElevatedButton.styleFrom(
+                          backgroundColor: const Color(0xFF2E7D32),
+                          padding: const EdgeInsets.symmetric(horizontal: 50, vertical: 15),
+                          shape: RoundedRectangleBorder(
+                            borderRadius: BorderRadius.circular(12.0),
+                          ),
+                        ),
+                        child: Text(
+                          'Login',
+                          style: GoogleFonts.montserrat(
+                            fontSize: 18,
+                            fontWeight: FontWeight.bold,
+                            color: Colors.white,
+                          ),
+                        ),
                       ),
-                    ),
-                    child: const Text('Login'),
+                    ],
                   ),
-                  const SizedBox(height: 16),
-                  // Forgot password
-                  TextButton(
-                    onPressed: () {},
-                    child: const Text(
-                      'Forgot Password?',
-                      style: TextStyle(color: Colors.white),
-                    ),
-                  ),
-                ],
+                ),
               ),
-            ),
+              const SizedBox(height: 40),
+              const AppFooter(),
+            ],
           ),
-        ],
+        ),
       ),
       bottomNavigationBar: const JoyfulBottomNav(),
     );
