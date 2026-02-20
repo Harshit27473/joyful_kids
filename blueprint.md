@@ -30,10 +30,20 @@ This document outlines the design, features, and implementation details of the J
     *   Increased the top margin of the copyright text in the footer for better separation from the background image.
     *   Reduced the spacing between the copyright text and the legal links (About Us, T&C, etc.) to create a more cohesive grouping.
 
+### Version 1.2
+
+*   **Responsive Layout Implementation:**
+    *   The application layout has been refactored to be responsive across a wide range of screen sizes, from small phones to large tablets.
+    *   **`ReadingCorner` Widget:**
+        *   Implemented a `LayoutBuilder` to dynamically adjust the number of columns in the `GridView`. The grid now shows 2 columns on narrow screens and 4 columns on screens wider than 600 pixels.
+    *   **`HomeBody` Widget:**
+        *   Replaced fixed pixel values for spacing, padding, and font sizes with proportional values based on screen width and height, using `MediaQuery`.
+        *   Introduced a `LayoutBuilder` to switch between a two-column layout for category cards on narrow screens and a more expansive row-based layout on wider screens.
+        *   Wrapped the main title in a `FittedBox` to ensure it scales down gracefully on smaller devices without causing text overflow.
+    *   **`Popular this Week` Section:**
+        *   Adjusted the spacing between the "Popular this Week" text and the adjacent icon to improve visual alignment.
+
 ## Current Plan
 
-*   **Refactor UI based on updated design:**
-    *   Adjust the styling of the main heading and category titles to match the latest design specifications.
-
-*   **Commit and push changes:**
-    *   The codebase will be committed to the repository with a descriptive message, and the changes will be pushed to the remote branch to ensure the project is up-to-date.
+*   **Implement Responsive Layout:**
+    *   Refactor the UI to ensure it adapts to various screen sizes using `LayoutBuilder` and `MediaQuery`.

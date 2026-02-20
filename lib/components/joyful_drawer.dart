@@ -8,46 +8,37 @@ class JoyfulDrawer extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Drawer(
+      backgroundColor: Colors.grey[900],
       child: ListView(
         padding: EdgeInsets.zero,
         children: <Widget>[
           DrawerHeader(
-            decoration: const BoxDecoration(
-              image: DecorationImage(
-                image: AssetImage('assets/images/b1t8d3p.png'),
-                fit: BoxFit.cover,
-              )
+            decoration: BoxDecoration(
+              color: Colors.grey[800],
             ),
             child: Row(
                 children: [
                     Image.asset('assets/images/joy.png', height: 50),
-                    const SizedBox(width: 10),
-                    Text(
-                        'Joyful Kids',
-                        style: GoogleFonts.montserrat(
-                        color: Colors.white,
-                        fontSize: 24,
-                        fontWeight: FontWeight.bold
-                        ),
-                    ),
                 ]
             ),
           ),
           ListTile(
-            leading: const Icon(Icons.home),
-            title: Text('Home', style: GoogleFonts.montserrat()),
+            leading: const Icon(Icons.home, color: Colors.grey),
+            title: Text('Home', style: GoogleFonts.montserrat(color: Colors.grey[400])),
             onTap: () {
               Navigator.pop(context); // Close the drawer
               // Navigate to Home if not already there
             },
           ),
           ExpansionTile(
-            leading: const Icon(Icons.category),
-            title: Text('Category', style: GoogleFonts.montserrat()),
+            leading: const Icon(Icons.category, color: Colors.grey),
+            iconColor: Colors.grey,
+            collapsedIconColor: Colors.grey,
+            title: Text('Category', style: GoogleFonts.montserrat(color: Colors.grey[400])),
             children: <Widget>[
               ListTile(
                 contentPadding: const EdgeInsets.only(left: 30.0),
-                title: Text('Interactive Learning', style: GoogleFonts.montserrat()),
+                title: Text('Interactive Learning', style: GoogleFonts.montserrat(color: Colors.grey[400])),
                 onTap: () {
                   // Handle navigation
                   Navigator.pop(context);
@@ -55,7 +46,7 @@ class JoyfulDrawer extends StatelessWidget {
               ),
               ListTile(
                 contentPadding: const EdgeInsets.only(left: 30.0),
-                title: Text('Game Galaxy', style: GoogleFonts.montserrat()),
+                title: Text('Game Galaxy', style: GoogleFonts.montserrat(color: Colors.grey[400])),
                 onTap: () {
                   // Handle navigation
                   Navigator.pop(context);
@@ -63,7 +54,7 @@ class JoyfulDrawer extends StatelessWidget {
               ),
               ListTile(
                 contentPadding: const EdgeInsets.only(left: 30.0),
-                title: Text('Reading Corner', style: GoogleFonts.montserrat()),
+                title: Text('Reading Corner', style: GoogleFonts.montserrat(color: Colors.grey[400])),
                 onTap: () {
                   // Handle navigation
                   Navigator.pop(context);
@@ -72,17 +63,17 @@ class JoyfulDrawer extends StatelessWidget {
             ],
           ),
           ListTile(
-            leading: const Icon(Icons.info),
-            title: Text('About Us', style: GoogleFonts.montserrat()),
+            leading: const Icon(Icons.info, color: Colors.grey),
+            title: Text('About Us', style: GoogleFonts.montserrat(color: Colors.grey[400])),
             onTap: () {
               Navigator.pop(context);
               Navigator.push(context, MaterialPageRoute(builder: (context) => const AboutUsScreen()));
             },
           ),
-          const Divider(),
+          const Divider(color: Colors.grey),
           ListTile(
-            leading: const Icon(Icons.login),
-            title: Text('Login', style: GoogleFonts.montserrat()),
+            leading: const Icon(Icons.login, color: Colors.grey),
+            title: Text('Login', style: GoogleFonts.montserrat(color: Colors.grey[400])),
             onTap: () {
               // Handle navigation
               Navigator.pop(context);

@@ -12,6 +12,9 @@ class HomeBody extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final screenWidth = MediaQuery.of(context).size.width;
+    final screenHeight = MediaQuery.of(context).size.height;
+
     final List<PopularItem> popularItems = [
       PopularItem(title: 'Soccer Championship', imageUrl: 'assets/images/soccer_championship.png'),
       PopularItem(title: '7 Continents of the world', imageUrl: 'assets/images/7_continents.png'),
@@ -20,80 +23,136 @@ class HomeBody extends StatelessWidget {
 
     return SingleChildScrollView(
       child: Padding(
-        padding: const EdgeInsets.all(16.0),
+        padding: EdgeInsets.symmetric(horizontal: screenWidth * 0.04),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            Text(
-              'Choose What To Learn Today?',
-              style: GoogleFonts.montserrat(
-                fontSize: 22,
-                fontWeight: FontWeight.bold,
-                color: const Color(0xFF224966),
+            SizedBox(height: screenHeight * 0.02),
+            FittedBox(
+              fit: BoxFit.scaleDown,
+              child: Text(
+                'Choose What To Learn Today?',
+                style: GoogleFonts.montserrat(
+                  fontSize: screenWidth * 0.055,
+                  fontWeight: FontWeight.bold,
+                  color: const Color(0xFF224966),
+                ),
               ),
             ),
-            const SizedBox(height: 20),
-            Row(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                Expanded(
-                  child: Column(
+            SizedBox(height: screenHeight * 0.03),
+            LayoutBuilder(
+              builder: (context, constraints) {
+                if (constraints.maxWidth > 600) {
+                  // Wide screen layout
+                  return Row(
+                    crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
-                      _buildCategoryCard(
-                        context,
-                        title: 'Interactive Learning\nVideos',
-                        imageUrl: 'assets/images/video_icon.png',
-                        height: 240,
-                        onTap: () {
-                          Navigator.push(
-                            context,
-                            MaterialPageRoute(builder: (context) => const InteractiveLearningVideosScreen()),
-                          );
-                        },
+                      Expanded(
+                        child: _buildCategoryCard(
+                          context,
+                          title: 'Interactive Learning\nVideos',
+                          imageUrl: 'assets/images/video_icon.png',
+                          onTap: () {
+                            Navigator.push(
+                              context,
+                              MaterialPageRoute(builder: (context) => const InteractiveLearningVideosScreen()),
+                            );
+                          },
+                        ),
                       ),
-                      const SizedBox(height: 20),
-                      _buildCategoryCard(
-                        context,
-                        title: 'Reading Corner',
-                        imageUrl: 'assets/images/abc.png',
-                        height: 240,
-                        onTap: () {
-                          Navigator.push(
-                            context,
-                            MaterialPageRoute(builder: (context) => const ReadingCornerScreen()),
-                          );
-                        },
+                      SizedBox(width: screenWidth * 0.04),
+                      Expanded(
+                        child: _buildCategoryCard(
+                          context,
+                          title: 'Reading Corner',
+                          imageUrl: 'assets/images/abc.png',
+                          onTap: () {
+                            Navigator.push(
+                              context,
+                              MaterialPageRoute(builder: (context) => const ReadingCornerScreen()),
+                            );
+                          },
+                        ),
+                      ),
+                      SizedBox(width: screenWidth * 0.04),
+                      Expanded(
+                        child: _buildCategoryCard(
+                          context,
+                          title: 'Game Galaxy',
+                          imageUrl: 'assets/images/game_icon.png',
+                          onTap: () {
+                            Navigator.push(
+                              context,
+                              MaterialPageRoute(builder: (context) => const GameGalaxyScreen()),
+                            );
+                          },
+                        ),
                       ),
                     ],
-                  ),
-                ),
-                const SizedBox(width: 20),
-                Expanded(
-                  child: Column(
+                  );
+                } else {
+                  // Narrow screen layout
+                  return Row(
+                    crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
-                      Image.asset(
-                        'assets/images/tree-iocn-right.png',
-                        height: 140,
+                      Expanded(
+                        child: Column(
+                          children: [
+                            _buildCategoryCard(
+                              context,
+                              title: 'Interactive Learning\nVideos',
+                              imageUrl: 'assets/images/video_icon.png',
+                              onTap: () {
+                                Navigator.push(
+                                  context,
+                                  MaterialPageRoute(builder: (context) => const InteractiveLearningVideosScreen()),
+                                );
+                              },
+                            ),
+                            SizedBox(height: screenHeight * 0.025),
+                            _buildCategoryCard(
+                              context,
+                              title: 'Reading Corner',
+                              imageUrl: 'assets/images/abc.png',
+                              onTap: () {
+                                Navigator.push(
+                                  context,
+                                  MaterialPageRoute(builder: (context) => const ReadingCornerScreen()),
+                                );
+                              },
+                            ),
+                          ],
+                        ),
                       ),
-                      const SizedBox(height: 20),
-                      _buildCategoryCard(
-                        context,
-                        title: 'Game Galaxy',
-                        imageUrl: 'assets/images/game_icon.png',
-                        height: 240,
-                        onTap: () {
-                          Navigator.push(
-                            context,
-                            MaterialPageRoute(builder: (context) => const GameGalaxyScreen()),
-                          );
-                        },
+                      SizedBox(width: screenWidth * 0.04),
+                      Expanded(
+                        child: Column(
+                          children: [
+                            Image.asset(
+                              'assets/images/tree-iocn-right.png',
+                              height: screenHeight * 0.18,
+                            ),
+                            SizedBox(height: screenHeight * 0.025),
+                            _buildCategoryCard(
+                              context,
+                              title: 'Game Galaxy',
+                              imageUrl: 'assets/images/game_icon.png',
+                              onTap: () {
+                                Navigator.push(
+                                  context,
+                                  MaterialPageRoute(builder: (context) => const GameGalaxyScreen()),
+                                );
+                              },
+                            ),
+                          ],
+                        ),
                       ),
                     ],
-                  ),
-                ),
-              ],
+                  );
+                }
+              },
             ),
-            const SizedBox(height: 30),
+            SizedBox(height: screenHeight * 0.04),
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
@@ -102,12 +161,12 @@ class HomeBody extends StatelessWidget {
                     Text(
                       'Popular this Week',
                       style: GoogleFonts.montserrat(
-                        fontSize: 20,
+                        fontSize: screenWidth * 0.05,
                         fontWeight: FontWeight.bold,
                         color: const Color(0xFF224966),
                       ),
                     ),
-                    const SizedBox(width: 10),
+                    const SizedBox(width: 5),
                     Image.asset('assets/images/popular-icon.png', height: 30),
                   ],
                 ),
@@ -119,11 +178,11 @@ class HomeBody extends StatelessWidget {
                       borderRadius: BorderRadius.circular(20),
                     ),
                   ),
-                  child: Text('View All', style: GoogleFonts.montserrat(color: Colors.black, fontSize: 16)),
+                  child: Text('View All', style: GoogleFonts.montserrat(color: Colors.black, fontSize: screenWidth * 0.04)),
                 ),
               ],
             ),
-            const SizedBox(height: 20),
+            SizedBox(height: screenHeight * 0.03),
             ListView.builder(
               shrinkWrap: true,
               physics: const NeverScrollableScrollPhysics(),
@@ -131,6 +190,7 @@ class HomeBody extends StatelessWidget {
               itemBuilder: (context, index) {
                 final item = popularItems[index];
                 return _buildPopularCard(
+                  context: context,
                   item: item,
                   onTap: () {
                     Navigator.push(
@@ -143,7 +203,7 @@ class HomeBody extends StatelessWidget {
                 );
               },
             ),
-            const SizedBox(height: 30),
+            SizedBox(height: screenHeight * 0.04),
             const ReadingCorner(),
           ],
         ),
@@ -156,12 +216,14 @@ class HomeBody extends StatelessWidget {
     required String title,
     required String imageUrl,
     required VoidCallback onTap,
-    required double height,
   }) {
+    final screenWidth = MediaQuery.of(context).size.width;
+    final screenHeight = MediaQuery.of(context).size.height;
+
     return GestureDetector(
       onTap: onTap,
       child: Container(
-        height: height,
+        height: screenHeight * 0.28,
         padding: const EdgeInsets.all(16.0),
         decoration: BoxDecoration(
           color: const Color(0xFFFEC50B),
@@ -180,13 +242,13 @@ class HomeBody extends StatelessWidget {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            Image.asset(imageUrl, height: 80, errorBuilder: (context, error, stackTrace) => const Icon(Icons.image_not_supported, size: 80)),
-            const SizedBox(height: 10),
+            Image.asset(imageUrl, height: screenHeight * 0.1, errorBuilder: (context, error, stackTrace) => Icon(Icons.image_not_supported, size: screenHeight * 0.1)),
+            SizedBox(height: screenHeight * 0.015),
             Text(
               title,
               textAlign: TextAlign.center,
               style: GoogleFonts.montserrat(
-                fontSize: 18,
+                fontSize: screenWidth * 0.04,
                 fontWeight: FontWeight.w500,
                 color: Colors.black,
               ),
@@ -197,14 +259,16 @@ class HomeBody extends StatelessWidget {
     );
   }
 
-  Widget _buildPopularCard({
+  Widget _buildPopularCard({    required BuildContext context,
     required PopularItem item,
     required VoidCallback onTap,
   }) {
+    final screenWidth = MediaQuery.of(context).size.width;
+    final screenHeight = MediaQuery.of(context).size.height;
     return GestureDetector(
       onTap: onTap,
       child: Container(
-        margin: const EdgeInsets.only(bottom: 20),
+        margin: EdgeInsets.only(bottom: screenHeight * 0.025),
         decoration: BoxDecoration(
           color: const Color(0xFFFEC50B),
           borderRadius: BorderRadius.circular(20),
@@ -223,11 +287,11 @@ class HomeBody extends StatelessWidget {
             children: [
               Image.asset(
                 item.imageUrl,
-                height: 180,
+                height: screenHeight * 0.22,
                 width: double.infinity,
                 fit: BoxFit.cover,
                 errorBuilder: (context, error, stackTrace) => Container(
-                  height: 180,
+                  height: screenHeight * 0.22,
                   color: Colors.grey[300],
                   child: const Icon(Icons.image_not_supported, size: 50),
                 ),
@@ -237,7 +301,7 @@ class HomeBody extends StatelessWidget {
                 child: Text(
                   item.title,
                   style: GoogleFonts.montserrat(
-                    fontSize: 22,
+                    fontSize: screenWidth * 0.05,
                     fontWeight: FontWeight.w500,
                     color: Colors.black87,
                   ),

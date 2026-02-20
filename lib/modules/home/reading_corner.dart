@@ -59,22 +59,32 @@ class ReadingCorner extends StatelessWidget {
           ],
         ),
         const SizedBox(height: 20),
-        GridView.builder(
-          shrinkWrap: true,
-          physics: const NeverScrollableScrollPhysics(),
-          gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
-            crossAxisCount: 2,
-            crossAxisSpacing: 16,
-            mainAxisSpacing: 24,
-            childAspectRatio: 0.8,
-          ),
-          itemCount: readingItems.length,
-          itemBuilder: (context, index) {
-            final item = readingItems[index];
-            return _buildReadingCard(
-              title: item.title,
-              imageUrl: item.imageUrl,
-              onTap: () {},
+        LayoutBuilder(
+          builder: (context, constraints) {
+            int crossAxisCount;
+            if (constraints.maxWidth > 600) {
+              crossAxisCount = 4;
+            } else {
+              crossAxisCount = 2;
+            }
+            return GridView.builder(
+              shrinkWrap: true,
+              physics: const NeverScrollableScrollPhysics(),
+              gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+                crossAxisCount: crossAxisCount,
+                crossAxisSpacing: 16,
+                mainAxisSpacing: 24,
+                childAspectRatio: 0.8,
+              ),
+              itemCount: readingItems.length,
+              itemBuilder: (context, index) {
+                final item = readingItems[index];
+                return _buildReadingCard(
+                  title: item.title,
+                  imageUrl: item.imageUrl,
+                  onTap: () {},
+                );
+              },
             );
           },
         ),
