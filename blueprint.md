@@ -24,6 +24,12 @@ This document outlines the design, features, and implementation details of the J
 *   **Asset Management:**
     *   All necessary image assets have been integrated into the project, and the `pubspec.yaml` file has been updated to include them.
 
+### Version 1.1
+
+*   **Footer Layout Adjustment:**
+    *   Increased the top margin of the copyright text in the footer for better separation from the background image.
+    *   Reduced the spacing between the copyright text and the legal links (About Us, T&C, etc.) to create a more cohesive grouping.
+
 ## Current Plan
 
 *   **Refactor UI based on updated design:**

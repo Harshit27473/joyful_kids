@@ -19,7 +19,7 @@ class AppFooter extends StatelessWidget {
                 fit: BoxFit.fitWidth,
                 width: double.infinity,
               ),
-              const SizedBox(height: 80), // Space for the text
+              const SizedBox(height: 120), // Space for the text
             ],
           ),
           Positioned(
@@ -42,7 +42,7 @@ class AppFooter extends StatelessWidget {
                     fontWeight: FontWeight.w500,
                   ),
                 ),
-                const SizedBox(height: 20),
+                const SizedBox(height: 10),
                 Row(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [

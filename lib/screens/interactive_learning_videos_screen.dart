@@ -4,6 +4,7 @@ import 'package:myapp/components/joyful_app_bar.dart';
 import 'package:myapp/components/joyful_bottom_nav.dart';
 import 'package:myapp/components/joyful_drawer.dart';
 import 'package:myapp/data/video_data.dart';
+import 'package:myapp/modules/videos/interactive_videos_banner.dart';
 import 'package:myapp/modules/videos/video_card.dart';
 
 class InteractiveLearningVideosScreen extends StatelessWidget {
@@ -21,60 +22,63 @@ class InteractiveLearningVideosScreen extends StatelessWidget {
             fit: BoxFit.cover,
           ),
         ),
-        child: Column(
-          children: [
-            Padding(
-              padding: const EdgeInsets.all(16.0),
-              child: Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: [
-                  Flexible(
-                    child: Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        Text(
-                          'Interactive',
-                          style: GoogleFonts.montserrat(
-                            fontSize: 24,
-                            fontWeight: FontWeight.bold,
-                            color: const Color(0xFF333333),
+        child: SingleChildScrollView(
+          child: Column(
+            children: [
+              const InteractiveVideosBanner(),
+              Padding(
+                padding: const EdgeInsets.all(16.0),
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    Flexible(
+                      child: Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          Text(
+                            'Interactive',
+                            style: GoogleFonts.montserrat(
+                              fontSize: 24,
+                              fontWeight: FontWeight.bold,
+                              color: const Color(0xFF333333),
+                            ),
                           ),
-                        ),
-                        Text(
-                          'Learning Videos',
-                          style: GoogleFonts.montserrat(
-                            fontSize: 24,
-                            fontWeight: FontWeight.bold,
-                            color: const Color(0xFF333333),
+                          Text(
+                            'Learning Videos',
+                            style: GoogleFonts.montserrat(
+                              fontSize: 24,
+                              fontWeight: FontWeight.bold,
+                              color: const Color(0xFF333333),
+                            ),
                           ),
-                        ),
-                      ],
-                    ),
-                  ),
-                  ElevatedButton(
-                    onPressed: () {},
-                    style: ElevatedButton.styleFrom(
-                      backgroundColor: const Color(0xFFFFD700), // Yellow color
-                      shape: RoundedRectangleBorder(
-                        borderRadius: BorderRadius.circular(20.0),
-                      ),
-                      padding: const EdgeInsets.symmetric(horizontal: 24.0, vertical: 12.0),
-                    ),
-                    child: Text(
-                      'View All',
-                      style: GoogleFonts.montserrat(
-                        fontWeight: FontWeight.bold,
-                        color: const Color(0xFF333333),
+                        ],
                       ),
                     ),
-                  ),
-                ],
+                    ElevatedButton(
+                      onPressed: () {},
+                      style: ElevatedButton.styleFrom(
+                        backgroundColor: const Color(0xFFFFD700), // Yellow color
+                        shape: RoundedRectangleBorder(
+                          borderRadius: BorderRadius.circular(20.0),
+                        ),
+                        padding: const EdgeInsets.symmetric(horizontal: 24.0, vertical: 12.0),
+                      ),
+                      child: Text(
+                        'View All',
+                        style: GoogleFonts.montserrat(
+                          fontWeight: FontWeight.bold,
+                          color: const Color(0xFF333333),
+                        ),
+                      ),
+                    ),
+                  ],
+                ),
               ),
-            ),
-            Expanded(
-              child: Padding(
+              Padding(
                 padding: const EdgeInsets.symmetric(horizontal: 16.0),
                 child: GridView.builder(
+                  shrinkWrap: true,
+                  physics: const NeverScrollableScrollPhysics(),
                   gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
                     crossAxisCount: 2,
                     crossAxisSpacing: 16.0,
@@ -87,8 +91,8 @@ class InteractiveLearningVideosScreen extends StatelessWidget {
                   },
                 ),
               ),
-            ),
-          ],
+            ],
+          ),
         ),
       ),
       bottomNavigationBar: const JoyfulBottomNav(),
