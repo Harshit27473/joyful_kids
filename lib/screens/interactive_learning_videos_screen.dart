@@ -57,12 +57,6 @@ class InteractiveLearningVideosScreen extends StatelessWidget {
                               ),
                             ],
                           ),
-                          const SizedBox(width: 8),
-                          Image.network(
-                            'https://joyfulkids.arshiya.info/kids/images/intrective-video-icon.png',
-                            width: 40,
-                            height: 40,
-                          ),
                         ],
                       ),
                     ),

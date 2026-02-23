@@ -9,7 +9,7 @@ class JoyfulBottomNav extends StatelessWidget {
 
     switch (index) {
       case 0:
-        newRoute = '/reading_corner';
+        newRoute = '/interactive_learning_videos';
         break;
       case 1:
         newRoute = '/';
@@ -30,7 +30,7 @@ class JoyfulBottomNav extends StatelessWidget {
     final String currentRoute = ModalRoute.of(context)?.settings.name ?? '';
     if (currentRoute == '/') {
       return 1;
-    } else if (currentRoute == '/reading_corner') {
+    } else if (currentRoute == '/interactive_learning_videos') {
       return 0;
     } else if (currentRoute == '/game_galaxy') {
       return 2;

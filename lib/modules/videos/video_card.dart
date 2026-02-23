@@ -28,13 +28,6 @@ class VideoCard extends StatelessWidget {
                   video.thumbnailUrl,
                   fit: BoxFit.cover,
                 ),
-                // Play button
-                const Icon(
-                  Icons.play_arrow,
-                  color: Colors.white,
-                  size: 30,
-                  shadows: [Shadow(color: Colors.black, blurRadius: 15.0)],
-                ),
               ],
             ),
           ),

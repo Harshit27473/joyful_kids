@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:myapp/routes/app_routes.dart';
+import 'package:myapp/screens/splash_screen.dart';
 
 void main() {
   runApp(const MyApp());
@@ -16,8 +16,7 @@ class MyApp extends StatelessWidget {
         primarySwatch: Colors.blue,
       ),
       debugShowCheckedModeBanner: false,
-      initialRoute: '/',
-      routes: routes,
+      home: const SplashScreen(),
     );
   }
 }
