@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:myapp/routes/app_routes.dart';
 import 'package:myapp/screens/splash_screen.dart';
 
 void main() {
@@ -17,6 +18,7 @@ class MyApp extends StatelessWidget {
       ),
       debugShowCheckedModeBanner: false,
       home: const SplashScreen(),
+      routes: routes,
     );
   }
 }

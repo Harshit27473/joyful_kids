@@ -5,6 +5,8 @@
   channel = "stable-24.05"; # or "unstable"
   # Use https://search.nixos.org/packages to find packages
   packages = [
+    pkgs.flutter
+    pkgs.dart
     pkgs.jdk21
     pkgs.unzip
   ];
@@ -20,6 +22,10 @@
       # Runs when a workspace is first created with this `dev.nix` file
       onCreate = { };
       # To run something each time the workspace is (re)started, use the `onStart` hook
+      onStart = {
+        # check flutter version
+        flutter-version = "flutter --version";
+      };
     };
     # Enable previews and customize configuration
     previews = {
