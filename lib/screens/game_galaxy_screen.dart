@@ -12,7 +12,7 @@ class GameGalaxyScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final JoyfulAppBar appBar = JoyfulAppBar();
+    const JoyfulAppBar appBar = JoyfulAppBar();
 
     return Scaffold(
       drawer: const JoyfulDrawer(),
@@ -30,27 +30,22 @@ class GameGalaxyScreen extends StatelessWidget {
               pinned: false,
               snap: true,
               backgroundColor: Colors.transparent,
-              // The JoyfulAppBar will handle the leading icon (drawer or back)
               automaticallyImplyLeading: false, 
               toolbarHeight: appBar.preferredSize.height,
               flexibleSpace: appBar,
             ),
-            SliverToBoxAdapter(
+            SliverFillRemaining(
+              hasScrollBody: false,
               child: Column(
                 children: [
-                  SizedBox(
-                    // Adjust height to ensure footer is visible
-                    height: MediaQuery.of(context).size.height - 
-                           appBar.preferredSize.height - 
-                           kBottomNavigationBarHeight - 
-                           (MediaQuery.of(context).padding.top + MediaQuery.of(context).padding.bottom) - 150, // Added padding to be safe
+                  Expanded(
                     child: Center(
                       child: Text(
                         'Game Galaxy',
                         style: GoogleFonts.montserrat(
                           fontSize: 32,
                           fontWeight: FontWeight.bold,
-                          color: Colors.white.withAlpha((255 * 0.9).round()),
+                          color: Colors.white.withOpacity(0.9),
                            shadows: [
                             const Shadow(
                               blurRadius: 10.0,

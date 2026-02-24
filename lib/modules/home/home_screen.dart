@@ -18,7 +18,7 @@ class HomeScreen extends StatefulWidget {
 class _HomeScreenState extends State<HomeScreen> {
   @override
   Widget build(BuildContext context) {
-    final JoyfulAppBar appBar = JoyfulAppBar(); // Create an instance
+    const JoyfulAppBar appBar = JoyfulAppBar(); // Create an instance
 
     return Scaffold(
       drawer: const JoyfulDrawer(),
@@ -44,16 +44,16 @@ class _HomeScreenState extends State<HomeScreen> {
               child: LayoutBuilder(
                 builder: (context, constraints) {
                   if (constraints.maxWidth < 600) {
-                    return Column(
-                      children: const [
+                    return const Column(
+                      children: [
                         HomeBanner(),
                         HomeBody(),
                         AppFooter(),
                       ],
                     );
                   } else {
-                    return Column(
-                      children: const [
+                    return const Column(
+                      children: [
                         HomeBanner(),
                         HomeBodyWeb(),
                         AppFooter(),

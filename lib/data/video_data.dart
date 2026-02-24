@@ -1,6 +1,6 @@
 import 'package:myapp/models/video.dart';
 
-final List<Video> interactiveVideos = [
+const List<Video> interactiveVideos = [
   Video(
     title: 'Zoo Animals',
     thumbnailUrl: 'https://ik.imagekit.io/pjvozlmxns/videos/interactive-learning-videos/zoo-animals/banner.1710847352_FKv4YMU9_.jpg',

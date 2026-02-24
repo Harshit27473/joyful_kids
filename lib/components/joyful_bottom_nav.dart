@@ -43,7 +43,7 @@ class JoyfulBottomNav extends StatelessWidget {
   Widget build(BuildContext context) {
     final int selectedIndex = _getSelectedIndex(context);
 
-    final List<String> iconPaths = [
+    const List<String> iconPaths = [
       'assets/images/footer-icon-1.png',
       'assets/images/footer-home-icon.png',
       'assets/images/footer-game-icon.png',

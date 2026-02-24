@@ -1,6 +1,5 @@
 import 'dart:async';
 import 'package:flutter/material.dart';
-import 'package:myapp/modules/home/home_screen.dart';
 import 'package:myapp/utils/constants/image_paths.dart';
 
 class SplashScreen extends StatefulWidget {
@@ -16,10 +15,7 @@ class SplashScreenState extends State<SplashScreen> {
     super.initState();
     Timer(
       const Duration(seconds: 2),
-      () => Navigator.pushReplacement(
-        context,
-        MaterialPageRoute(builder: (context) => const HomeScreen()),
-      ),
+      () => Navigator.pushReplacementNamed(context, '/home'),
     );
   }
 

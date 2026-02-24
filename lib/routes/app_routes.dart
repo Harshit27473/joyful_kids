@@ -6,13 +6,25 @@ import 'package:myapp/screens/interactive_learning_videos_screen.dart';
 import 'package:myapp/screens/login_screen.dart';
 import 'package:myapp/screens/reading_corner_screen.dart';
 import 'package:myapp/modules/settings/settings_screen.dart';
+import 'package:myapp/screens/splash_screen.dart';
 
-final Map<String, WidgetBuilder> routes = {
-  '/login': (context) => const LoginScreen(),
-  '/game_galaxy': (context) => const GameGalaxyScreen(),
-  '/reading_corner': (context) => const ReadingCornerScreen(),
-  '/settings': (context) => const SettingsScreen(),
-  '/about_us': (context) => const AboutUsScreen(),
-  '/interactive_learning_videos': (context) => const InteractiveLearningVideosScreen(),
-  '/home': (context) => const HomeScreen(),
-};
+class AppRoutes {
+  static const String home = '/';
+  static const String login = '/login';
+  static const String gameGalaxy = '/game_galaxy';
+  static const String readingCorner = '/reading_corner';
+  static const String settings = '/settings';
+  static const String aboutUs = '/about_us';
+  static const String interactiveLearningVideos = '/interactive_learning_videos';
+
+  static final Map<String, WidgetBuilder> routes = {
+    home: (context) => const SplashScreen(),
+    login: (context) => const LoginScreen(),
+    gameGalaxy: (context) => const GameGalaxyScreen(),
+    readingCorner: (context) => const ReadingCornerScreen(),
+    settings: (context) => const SettingsScreen(),
+    aboutUs: (context) => const AboutUsScreen(),
+    interactiveLearningVideos: (context) => const InteractiveLearningVideosScreen(),
+    '/home': (context) => const HomeScreen(),
+  };
+}
