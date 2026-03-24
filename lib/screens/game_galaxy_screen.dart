@@ -1,6 +1,5 @@
 
 import 'package:flutter/material.dart';
-import 'package:google_fonts/google_fonts.dart';
 import 'package:myapp/components/app_footer.dart';
 import 'package:myapp/components/joyful_app_bar.dart';
 import 'package:myapp/components/joyful_bottom_nav.dart';
@@ -34,7 +33,7 @@ class GameGalaxyScreen extends StatelessWidget {
               toolbarHeight: appBar.preferredSize.height,
               flexibleSpace: appBar,
             ),
-            SliverFillRemaining(
+            const SliverFillRemaining(
               hasScrollBody: false,
               child: Column(
                 children: [
@@ -42,12 +41,12 @@ class GameGalaxyScreen extends StatelessWidget {
                     child: Center(
                       child: Text(
                         'Game Galaxy',
-                        style: GoogleFonts.montserrat(
+                        style: TextStyle(
                           fontSize: 32,
                           fontWeight: FontWeight.bold,
-                          color: Colors.white.withOpacity(0.9),
+                          color: Colors.white,
                            shadows: [
-                            const Shadow(
+                            Shadow(
                               blurRadius: 10.0,
                               color: Colors.black45,
                               offset: Offset(3.0, 3.0),
@@ -57,7 +56,7 @@ class GameGalaxyScreen extends StatelessWidget {
                       ),
                     ),
                   ),
-                  const AppFooter(),
+                  AppFooter(),
                 ],
               ),
             ),

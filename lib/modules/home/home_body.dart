@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:google_fonts/google_fonts.dart';
 import 'package:myapp/models/popular_item.dart';
 import 'package:myapp/modules/home/reading_corner.dart';
 import 'package:myapp/screens/interactive_learning_videos_screen.dart';
@@ -34,7 +33,7 @@ class HomeBody extends StatelessWidget {
               fit: BoxFit.scaleDown,
               child: Text(
                 'Choose What To Learn Today?',
-                style: GoogleFonts.montserrat(
+                style: TextStyle(
                   fontSize: screenWidth * 0.055,
                   fontWeight: FontWeight.bold,
                   color: AppColors.textColor,
@@ -62,7 +61,7 @@ class HomeBody extends StatelessWidget {
                           },
                         ),
                       ),
-                      SizedBox(width: screenWidth * 0.04),
+                      SizedBox(width: screenWidth * 0.03),
                       Expanded(
                         child: _buildCategoryCard(
                           context,
@@ -76,7 +75,7 @@ class HomeBody extends StatelessWidget {
                           },
                         ),
                       ),
-                      SizedBox(width: screenWidth * 0.04),
+                      SizedBox(width: screenWidth * 0.03),
                       Expanded(
                         child: _buildCategoryCard(
                           context,
@@ -162,7 +161,7 @@ class HomeBody extends StatelessWidget {
                   children: [
                     Text(
                       'Popular this Week',
-                      style: GoogleFonts.montserrat(
+                      style: TextStyle(
                         fontSize: screenWidth * 0.05,
                         fontWeight: FontWeight.bold,
                         color: AppColors.textColor,
@@ -180,7 +179,7 @@ class HomeBody extends StatelessWidget {
                       borderRadius: BorderRadius.circular(20),
                     ),
                   ),
-                  child: Text('View All', style: GoogleFonts.montserrat(color: Colors.black, fontSize: screenWidth * 0.04)),
+                  child: Text('View All', style: TextStyle(color: Colors.black, fontSize: screenWidth * 0.04)),
                 ),
               ],
             ),
@@ -250,7 +249,7 @@ class HomeBody extends StatelessWidget {
             Text(
               title,
               textAlign: TextAlign.center,
-              style: GoogleFonts.montserrat(
+              style: TextStyle(
                 fontSize: screenWidth * 0.04,
                 fontWeight: FontWeight.w500,
                 color: Colors.black,
@@ -303,7 +302,7 @@ class HomeBody extends StatelessWidget {
                 padding: const EdgeInsets.all(16.0),
                 child: Text(
                   item.title,
-                  style: GoogleFonts.montserrat(
+                  style: TextStyle(
                     fontSize: screenWidth * 0.05,
                     fontWeight: FontWeight.w500,
                     color: Colors.black87,

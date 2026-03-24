@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:google_fonts/google_fonts.dart';
 import 'package:myapp/models/video.dart';
 import 'package:myapp/utils/constants/app_colors.dart';
 
@@ -36,7 +35,7 @@ class VideoCard extends StatelessWidget {
           padding: const EdgeInsets.only(top: 8.0, bottom: 4.0),
           child: Text(
             video.title,
-            style: GoogleFonts.montserrat(
+            style: const TextStyle(
               fontSize: 14,
               fontWeight: FontWeight.w600,
               color: AppColors.textColor,

@@ -10,7 +10,7 @@ class AppColors {
   static const Color white = Colors.white;
   static const Color overlayColor = Color.fromRGBO(0, 0, 0, 0.3);
   static const Color grey = Colors.grey;
-  static Color drawerHeaderColor = Colors.grey[200]!;
+  static const Color drawerHeaderColor = Color(0xFFEEEEEE); // Replaced Colors.grey[200]! with hex
   static const Color black54 = Colors.black54;
   static const Color black87 = Colors.black87;
 }

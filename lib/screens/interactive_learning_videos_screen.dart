@@ -1,6 +1,4 @@
-
 import 'package:flutter/material.dart';
-import 'package:google_fonts/google_fonts.dart';
 import 'package:myapp/components/app_footer.dart';
 import 'package:myapp/components/joyful_app_bar.dart';
 import 'package:myapp/components/joyful_bottom_nav.dart';
@@ -34,10 +32,10 @@ class InteractiveLearningVideosScreen extends StatelessWidget {
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
-                    Flexible(
+                    const Flexible(
                       child: Text(
                         'Interactive\nLearning Videos',
-                        style: GoogleFonts.montserrat(
+                        style: TextStyle(
                           fontSize: 24,
                           fontWeight: FontWeight.bold,
                           color: AppColors.textColor,
@@ -53,9 +51,9 @@ class InteractiveLearningVideosScreen extends StatelessWidget {
                         ),
                         padding: const EdgeInsets.symmetric(horizontal: 24.0, vertical: 12.0),
                       ),
-                      child: Text(
+                      child: const Text(
                         'View All',
-                        style: GoogleFonts.montserrat(
+                        style: TextStyle(
                           fontWeight: FontWeight.bold,
                           color: AppColors.textColor,
                         ),

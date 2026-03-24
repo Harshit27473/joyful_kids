@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:google_fonts/google_fonts.dart';
 import 'package:myapp/utils/constants/app_colors.dart';
 import 'package:myapp/utils/constants/image_paths.dart';
 
@@ -36,9 +35,9 @@ class AppFooter extends StatelessWidget {
             bottom: 10,
             child: Column(
               children: [
-                Text(
+                const Text(
                   'Copyright@2025. Joyfulkids',
-                  style: GoogleFonts.lato(
+                  style: TextStyle(
                     fontSize: 16,
                     color: AppColors.textColor,
                     fontWeight: FontWeight.w500,
@@ -70,7 +69,7 @@ class AppFooter extends StatelessWidget {
       onTap: onTap,
       child: Text(
         text,
-        style: GoogleFonts.lato(
+        style: const TextStyle(
           fontSize: 14,
           color: AppColors.textColor,
           fontWeight: FontWeight.w500,

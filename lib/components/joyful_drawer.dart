@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:google_fonts/google_fonts.dart';
 import 'package:myapp/screens/about_us_screen.dart';
 import 'package:myapp/utils/constants/app_colors.dart';
 import 'package:myapp/utils/constants/image_paths.dart';
@@ -15,7 +14,7 @@ class JoyfulDrawer extends StatelessWidget {
         padding: EdgeInsets.zero,
         children: <Widget>[
           DrawerHeader(
-            decoration: BoxDecoration(
+            decoration: const BoxDecoration(
               color: AppColors.drawerHeaderColor,
             ),
             child: Row(
@@ -26,7 +25,7 @@ class JoyfulDrawer extends StatelessWidget {
           ),
           ListTile(
             leading: const Icon(Icons.home, color: AppColors.black54),
-            title: Text('Home', style: GoogleFonts.montserrat(color: AppColors.black87)),
+            title: const Text('Home', style: TextStyle(color: AppColors.black87)),
             onTap: () {
               Navigator.pop(context); // Close the drawer
               // Navigate to Home if not already there
@@ -36,11 +35,11 @@ class JoyfulDrawer extends StatelessWidget {
             leading: const Icon(Icons.category, color: AppColors.black54),
             iconColor: AppColors.black54,
             collapsedIconColor: AppColors.black54,
-            title: Text('Category', style: GoogleFonts.montserrat(color: AppColors.black87)),
+            title: const Text('Category', style: TextStyle(color: AppColors.black87)),
             children: <Widget>[
               ListTile(
                 contentPadding: const EdgeInsets.only(left: 30.0),
-                title: Text('Interactive Learning', style: GoogleFonts.montserrat(color: AppColors.black87)),
+                title: const Text('Interactive Learning', style: TextStyle(color: AppColors.black87)),
                 onTap: () {
                   // Handle navigation
                   Navigator.pop(context);
@@ -48,7 +47,7 @@ class JoyfulDrawer extends StatelessWidget {
               ),
               ListTile(
                 contentPadding: const EdgeInsets.only(left: 30.0),
-                title: Text('Game Galaxy', style: GoogleFonts.montserrat(color: AppColors.black87)),
+                title: const Text('Game Galaxy', style: TextStyle(color: AppColors.black87)),
                 onTap: () {
                   // Handle navigation
                   Navigator.pop(context);
@@ -56,7 +55,7 @@ class JoyfulDrawer extends StatelessWidget {
               ),
               ListTile(
                 contentPadding: const EdgeInsets.only(left: 30.0),
-                title: Text('Reading Corner', style: GoogleFonts.montserrat(color: AppColors.black87)),
+                title: const Text('Reading Corner', style: TextStyle(color: AppColors.black87)),
                 onTap: () {
                   // Handle navigation
                   Navigator.pop(context);
@@ -66,7 +65,7 @@ class JoyfulDrawer extends StatelessWidget {
           ),
           ListTile(
             leading: const Icon(Icons.info, color: AppColors.black54),
-            title: Text('About Us', style: GoogleFonts.montserrat(color: AppColors.black87)),
+            title: const Text('About Us', style: TextStyle(color: AppColors.black87)),
             onTap: () {
               Navigator.pop(context);
               Navigator.push(context, MaterialPageRoute(builder: (context) => const AboutUsScreen()));
@@ -75,7 +74,7 @@ class JoyfulDrawer extends StatelessWidget {
           const Divider(color: AppColors.grey),
           ListTile(
             leading: const Icon(Icons.login, color: AppColors.black54),
-            title: Text('Login', style: GoogleFonts.montserrat(color: AppColors.black87)),
+            title: const Text('Login', style: TextStyle(color: AppColors.black87)),
             onTap: () {
               // Handle navigation
               Navigator.pop(context);

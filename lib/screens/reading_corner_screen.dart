@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:google_fonts/google_fonts.dart';
 import 'package:myapp/components/app_footer.dart';
 import 'package:myapp/components/joyful_app_bar.dart';
 import 'package:myapp/components/joyful_bottom_nav.dart';
@@ -58,9 +57,9 @@ class ReadingCornerScreen extends StatelessWidget {
                   children: [
                     Row(
                       children: [
-                        Text(
+                        const Text(
                           'Reading Corner',
-                          style: GoogleFonts.montserrat(
+                          style: TextStyle(
                             fontSize: 20,
                             fontWeight: FontWeight.bold,
                             color: AppColors.textColor,
@@ -78,7 +77,7 @@ class ReadingCornerScreen extends StatelessWidget {
                           borderRadius: BorderRadius.circular(20),
                         ),
                       ),
-                      child: Text('View All', style: GoogleFonts.montserrat(color: Colors.black, fontSize: 16)),
+                      child: const Text('View All', style: TextStyle(color: Colors.black, fontSize: 16)),
                     ),
                   ],
                 ),
@@ -156,7 +155,7 @@ class ReadingCornerScreen extends StatelessWidget {
             child: Text(
               title,
               textAlign: TextAlign.center,
-              style: GoogleFonts.montserrat(
+              style: const TextStyle(
                 fontSize: 14,
                 fontWeight: FontWeight.w500,
                 color: Colors.black,

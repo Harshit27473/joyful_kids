@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:google_fonts/google_fonts.dart';
 import 'package:myapp/models/popular_item.dart';
 import 'package:myapp/utils/constants/app_colors.dart';
 
@@ -14,7 +13,7 @@ class PopularItemDetailScreen extends StatelessWidget {
       appBar: AppBar(
         title: Text(
           item.title,
-          style: GoogleFonts.montserrat(
+          style: const TextStyle(
             fontWeight: FontWeight.bold,
             color: AppColors.textColor,
           ),
@@ -44,7 +43,7 @@ class PopularItemDetailScreen extends StatelessWidget {
               Text(
                 item.title,
                 textAlign: TextAlign.center,
-                style: GoogleFonts.montserrat(
+                style: const TextStyle(
                   fontSize: 28,
                   fontWeight: FontWeight.bold,
                   color: AppColors.textColor,

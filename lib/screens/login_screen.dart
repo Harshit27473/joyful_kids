@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:google_fonts/google_fonts.dart';
 import 'package:myapp/components/app_footer.dart';
 import 'package:myapp/components/breadcrumb.dart';
 import 'package:myapp/components/joyful_app_bar.dart';
@@ -86,9 +85,9 @@ class _LoginScreenState extends State<LoginScreen> {
                   ),
                   child: Column(
                     children: [
-                      Text(
+                      const Text(
                         'Login',
-                        style: GoogleFonts.montserrat(
+                        style: TextStyle(
                           fontSize: 24,
                           fontWeight: FontWeight.bold,
                         ),
@@ -127,9 +126,9 @@ class _LoginScreenState extends State<LoginScreen> {
                             borderRadius: BorderRadius.circular(12.0),
                           ),
                         ),
-                        child: Text(
+                        child: const Text(
                           'Login',
-                          style: GoogleFonts.montserrat(
+                          style: TextStyle(
                             fontSize: 18,
                             fontWeight: FontWeight.bold,
                             color: Colors.white,

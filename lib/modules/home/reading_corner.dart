@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:google_fonts/google_fonts.dart';
 import 'package:myapp/models/reading_item.dart';
 import 'package:myapp/utils/constants/app_colors.dart';
 import 'package:myapp/utils/constants/image_paths.dart';
@@ -36,9 +35,9 @@ class ReadingCorner extends StatelessWidget {
           children: [
             Row(
               children: [
-                Text(
+                const Text(
                   'Reading Corner',
-                  style: GoogleFonts.montserrat(
+                  style: TextStyle(
                     fontSize: 20,
                     fontWeight: FontWeight.bold,
                     color: AppColors.textColor,
@@ -56,7 +55,7 @@ class ReadingCorner extends StatelessWidget {
                   borderRadius: BorderRadius.circular(20),
                 ),
               ),
-              child: Text('View All', style: GoogleFonts.montserrat(color: Colors.black, fontSize: 16)),
+              child: const Text('View All', style: TextStyle(color: Colors.black, fontSize: 16)),
             ),
           ],
         ),
@@ -135,7 +134,7 @@ class ReadingCorner extends StatelessWidget {
             child: Text(
               title,
               textAlign: TextAlign.center,
-              style: GoogleFonts.montserrat(
+              style: const TextStyle(
                 fontSize: 14,
                 fontWeight: FontWeight.w500,
                 color: Colors.black,

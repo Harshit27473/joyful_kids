@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:google_fonts/google_fonts.dart';
 import 'package:myapp/providers/theme_provider.dart';
 import 'package:provider/provider.dart';
 
@@ -12,20 +11,20 @@ class SettingsScreen extends StatelessWidget {
 
     return Scaffold(
       appBar: AppBar(
-        title: Text('Settings', style: GoogleFonts.montserrat()),
+        title: const Text('Settings', style: TextStyle()),
       ),
       body: ListView(
         children: [
           ListTile(
-            title: Text('Language', style: GoogleFonts.montserrat()),
-            subtitle: Text('English', style: GoogleFonts.montserrat()),
+            title: const Text('Language', style: TextStyle()),
+            subtitle: const Text('English', style: TextStyle()),
             leading: const Icon(Icons.language),
             onTap: () {
               // Open language settings
             },
           ),
           SwitchListTile(
-            title: Text('Dark Mode', style: GoogleFonts.montserrat()),
+            title: const Text('Dark Mode', style: TextStyle()),
             value: themeProvider.themeMode == ThemeMode.dark,
             onChanged: (value) {
               themeProvider.toggleTheme();
@@ -33,7 +32,7 @@ class SettingsScreen extends StatelessWidget {
             secondary: Icon(themeProvider.themeMode == ThemeMode.dark ? Icons.dark_mode : Icons.light_mode),
           ),
           ListTile(
-            title: Text('System Theme', style: GoogleFonts.montserrat()),
+            title: const Text('System Theme', style: TextStyle()),
             leading: const Icon(Icons.auto_mode),
             onTap: () {
               themeProvider.setSystemTheme();
