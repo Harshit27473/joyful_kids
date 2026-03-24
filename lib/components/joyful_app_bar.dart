@@ -1,5 +1,6 @@
 
 import 'package:flutter/material.dart';
+import 'package:myapp/routes/app_routes.dart';
 import 'package:myapp/screens/login_screen.dart';
 
 class JoyfulAppBar extends StatefulWidget implements PreferredSizeWidget {
@@ -28,8 +29,8 @@ class _JoyfulAppBarState extends State<JoyfulAppBar> {
               GestureDetector(
                 onTap: () {
                   // Navigate to the home page if not already there
-                  if (ModalRoute.of(context)?.settings.name != '/') {
-                    Navigator.of(context).pushReplacementNamed('/');
+                  if (ModalRoute.of(context)?.settings.name != AppRoutes.home) {
+                    Navigator.of(context).pushReplacementNamed(AppRoutes.home);
                   }
                 },
                 child: Padding(

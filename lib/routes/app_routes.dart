@@ -9,7 +9,8 @@ import 'package:myapp/modules/settings/settings_screen.dart';
 import 'package:myapp/screens/splash_screen.dart';
 
 class AppRoutes {
-  static const String home = '/';
+  static const String splash = '/';
+  static const String home = '/home';
   static const String login = '/login';
   static const String gameGalaxy = '/game_galaxy';
   static const String readingCorner = '/reading_corner';
@@ -18,13 +19,13 @@ class AppRoutes {
   static const String interactiveLearningVideos = '/interactive_learning_videos';
 
   static final Map<String, WidgetBuilder> routes = {
-    home: (context) => const SplashScreen(),
+    splash: (context) => const SplashScreen(),
+    home: (context) => const HomeScreen(),
     login: (context) => const LoginScreen(),
     gameGalaxy: (context) => const GameGalaxyScreen(),
     readingCorner: (context) => const ReadingCornerScreen(),
     settings: (context) => const SettingsScreen(),
     aboutUs: (context) => const AboutUsScreen(),
     interactiveLearningVideos: (context) => const InteractiveLearningVideosScreen(),
-    '/home': (context) => const HomeScreen(),
   };
 }

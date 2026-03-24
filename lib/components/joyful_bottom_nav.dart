@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:myapp/routes/app_routes.dart';
 
 class JoyfulBottomNav extends StatelessWidget {
   const JoyfulBottomNav({super.key});
@@ -9,13 +10,13 @@ class JoyfulBottomNav extends StatelessWidget {
 
     switch (index) {
       case 0:
-        newRoute = '/interactive_learning_videos';
+        newRoute = AppRoutes.interactiveLearningVideos;
         break;
       case 1:
-        newRoute = '/';
+        newRoute = AppRoutes.home;
         break;
       case 2:
-        newRoute = '/game_galaxy';
+        newRoute = AppRoutes.gameGalaxy;
         break;
       default:
         return;
@@ -28,11 +29,11 @@ class JoyfulBottomNav extends StatelessWidget {
 
   int _getSelectedIndex(BuildContext context) {
     final String currentRoute = ModalRoute.of(context)?.settings.name ?? '';
-    if (currentRoute == '/') {
+    if (currentRoute == AppRoutes.home) {
       return 1;
-    } else if (currentRoute == '/interactive_learning_videos') {
+    } else if (currentRoute == AppRoutes.interactiveLearningVideos) {
       return 0;
-    } else if (currentRoute == '/game_galaxy') {
+    } else if (currentRoute == AppRoutes.gameGalaxy) {
       return 2;
     }
     // Default to home if the route is not recognized

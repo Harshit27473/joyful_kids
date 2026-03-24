@@ -1,5 +1,6 @@
 import 'dart:async';
 import 'package:flutter/material.dart';
+import 'package:myapp/routes/app_routes.dart';
 import 'package:myapp/utils/constants/image_paths.dart';
 
 class SplashScreen extends StatefulWidget {
@@ -15,7 +16,7 @@ class SplashScreenState extends State<SplashScreen> {
     super.initState();
     Timer(
       const Duration(seconds: 2),
-      () => Navigator.pushReplacementNamed(context, '/home'),
+      () => Navigator.pushReplacementNamed(context, AppRoutes.home),
     );
   }
 

@@ -88,7 +88,7 @@ class MyApp extends StatelessWidget {
           darkTheme: darkTheme,
           themeMode: themeProvider.themeMode,
           debugShowCheckedModeBanner: false,
-          initialRoute: AppRoutes.home,
+          initialRoute: AppRoutes.splash,
           routes: AppRoutes.routes,
         );
       },
