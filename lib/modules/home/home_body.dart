@@ -110,7 +110,7 @@ class HomeBody extends StatelessWidget {
                                 );
                               },
                             ),
-                            SizedBox(height: screenHeight * 0.025),
+                            SizedBox(height: screenHeight * 0.04),
                             _buildCategoryCard(
                               context,
                               title: 'Reading Corner',

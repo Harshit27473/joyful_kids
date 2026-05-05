@@ -3,6 +3,8 @@ import 'package:myapp/models/reading_item.dart';
 import 'package:myapp/utils/constants/app_colors.dart';
 import 'package:myapp/utils/constants/image_paths.dart';
 
+import '../../screens/reading_corner_screen.dart';
+
 class ReadingCorner extends StatelessWidget {
   const ReadingCorner({super.key});
 
@@ -48,7 +50,14 @@ class ReadingCorner extends StatelessWidget {
               ],
             ),
             ElevatedButton(
-              onPressed: () {},
+              onPressed: () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                      builder: (context) => const ReadingCornerScreen(),
+                    ),
+                  );
+                },
               style: ElevatedButton.styleFrom(
                 backgroundColor: AppColors.accentColor,
                 shape: RoundedRectangleBorder(
