@@ -14,14 +14,19 @@ class SplashScreenState extends State<SplashScreen> {
   @override
   void initState() {
     super.initState();
+    debugPrint('SplashScreen: initState - starting 2s timer');
     Timer(
       const Duration(seconds: 2),
-      () => Navigator.pushReplacementNamed(context, AppRoutes.home),
+      () {
+        debugPrint('SplashScreen: Timer finished, navigating to Home');
+        Navigator.pushReplacementNamed(context, AppRoutes.home);
+      },
     );
   }
 
   @override
   Widget build(BuildContext context) {
+    debugPrint('SplashScreen: Building UI');
     return Scaffold(
       backgroundColor: Colors.white,
       body: Center(

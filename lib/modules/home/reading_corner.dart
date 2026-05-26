@@ -10,6 +10,7 @@ class ReadingCorner extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    debugPrint('ReadingCorner: Building UI');
     final List<ReadingItem> readingItems = [
       ReadingItem(
         title: 'Strategies For Building Resilience In Children',
@@ -46,11 +47,15 @@ class ReadingCorner extends StatelessWidget {
                   ),
                 ),
                 const SizedBox(width: 10),
-                Image.asset(ImagePaths.readingCornerIcon, height: 30),
+                Image.asset(ImagePaths.readingCornerIcon, height: 30, errorBuilder: (context, error, stackTrace) {
+                  debugPrint('ReadingCorner: Error loading icon: $error');
+                  return const Icon(Icons.error);
+                }),
               ],
             ),
             ElevatedButton(
               onPressed: () {
+                  debugPrint('ReadingCorner: Tapped View All');
                   Navigator.push(
                     context,
                     MaterialPageRoute(
@@ -92,7 +97,9 @@ class ReadingCorner extends StatelessWidget {
                 return _buildReadingCard(
                   title: item.title,
                   imageUrl: item.imageUrl,
-                  onTap: () {},
+                  onTap: () {
+                    debugPrint('ReadingCorner: Tapped item ${item.title}');
+                  },
                 );
               },
             );
@@ -130,8 +137,10 @@ class ReadingCorner extends StatelessWidget {
                 child: Image.network(
                   imageUrl,
                   fit: BoxFit.cover,
-                  errorBuilder: (context, error, stackTrace) =>
-                      const Icon(Icons.image_not_supported, size: 50),
+                  errorBuilder: (context, error, stackTrace) {
+                    debugPrint('ReadingCorner: Error loading network image $imageUrl: $error');
+                    return const Icon(Icons.image_not_supported, size: 50);
+                  },
                 ),
               ),
             ),

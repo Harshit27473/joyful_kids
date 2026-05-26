@@ -9,25 +9,35 @@ class VideoCard extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    debugPrint('VideoCard: Building for video: ${video.title}');
     return Column(
       crossAxisAlignment: CrossAxisAlignment.stretch,
       children: [
         Expanded(
-          child: Card(
-            elevation: 5,
-            shape: RoundedRectangleBorder(
-              borderRadius: BorderRadius.circular(15.0),
-            ),
-            clipBehavior: Clip.antiAlias,
-            child: Stack(
-              alignment: Alignment.center,
-              fit: StackFit.expand,
-              children: [
-                Image.network(
-                  video.thumbnailUrl,
-                  fit: BoxFit.cover,
-                ),
-              ],
+          child: GestureDetector(
+            onTap: () {
+              debugPrint('VideoCard: Tapped video card: ${video.title}');
+            },
+            child: Card(
+              elevation: 5,
+              shape: RoundedRectangleBorder(
+                borderRadius: BorderRadius.circular(15.0),
+              ),
+              clipBehavior: Clip.antiAlias,
+              child: Stack(
+                alignment: Alignment.center,
+                fit: StackFit.expand,
+                children: [
+                  Image.network(
+                    video.thumbnailUrl,
+                    fit: BoxFit.cover,
+                    errorBuilder: (context, error, stackTrace) {
+                      debugPrint('VideoCard: Error loading thumbnail for ${video.title}: $error');
+                      return const Icon(Icons.error);
+                    },
+                  ),
+                ],
+              ),
             ),
           ),
         ),

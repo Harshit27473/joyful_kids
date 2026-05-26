@@ -9,6 +9,7 @@ class PopularItemDetailScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    debugPrint('PopularItemDetailScreen: Building UI for item: ${item.title}');
     return Scaffold(
       appBar: AppBar(
         title: Text(
@@ -32,11 +33,14 @@ class PopularItemDetailScreen extends StatelessWidget {
                 child: Image.asset(
                   item.imageUrl,
                   fit: BoxFit.cover,
-                  errorBuilder: (context, error, stackTrace) => const Icon(
-                    Icons.image_not_supported,
-                    size: 150,
-                    color: Colors.grey,
-                  ),
+                  errorBuilder: (context, error, stackTrace) {
+                    debugPrint('PopularItemDetailScreen: Error loading image ${item.imageUrl}: $error');
+                    return const Icon(
+                      Icons.image_not_supported,
+                      size: 150,
+                      color: Colors.grey,
+                    );
+                  },
                 ),
               ),
               const SizedBox(height: 30),

@@ -7,6 +7,7 @@ class AboutUsScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    debugPrint('AboutUsScreen: Building UI');
     return Scaffold(
       appBar: AppBar(
         title: const Text('About Us', style: TextStyle()),

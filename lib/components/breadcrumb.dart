@@ -7,6 +7,7 @@ class Breadcrumb extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    debugPrint('Breadcrumb: Building with text: $text');
     return Container(
       color: Colors.grey[200],
       padding: const EdgeInsets.symmetric(vertical: 8.0, horizontal: 16.0),

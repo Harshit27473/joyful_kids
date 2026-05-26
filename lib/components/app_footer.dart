@@ -7,6 +7,7 @@ class AppFooter extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    debugPrint('AppFooter: Building UI');
     return Container(
       width: double.infinity,
       color: Colors.transparent,
@@ -19,6 +20,10 @@ class AppFooter extends StatelessWidget {
                 ImagePaths.footerBackground,
                 fit: BoxFit.fitWidth,
                 width: double.infinity,
+                errorBuilder: (context, error, stackTrace) {
+                  debugPrint('AppFooter: Error loading footer background: $error');
+                  return const SizedBox.shrink();
+                },
               ),
               const SizedBox(height: 120), // Space for the text
             ],
@@ -29,6 +34,10 @@ class AppFooter extends StatelessWidget {
             child: Image.network(
               'https://joyfulkids.arshiya.info/kids/images/rocket-icon.png',
               height: 200,
+              errorBuilder: (context, error, stackTrace) {
+                debugPrint('AppFooter: Error loading rocket icon: $error');
+                return const SizedBox.shrink();
+              },
             ),
           ),
           Positioned(
@@ -47,13 +56,21 @@ class AppFooter extends StatelessWidget {
                 Row(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
-                    _buildFooterLink('About Us', () {}),
+                    _buildFooterLink('About Us', () {
+                      debugPrint('AppFooter: Tapped About Us');
+                    }),
                     _buildFooterDivider(),
-                    _buildFooterLink('T&C', () {}),
+                    _buildFooterLink('T&C', () {
+                      debugPrint('AppFooter: Tapped T&C');
+                    }),
                     _buildFooterDivider(),
-                    _buildFooterLink('Privacy Policy', () {}),
+                    _buildFooterLink('Privacy Policy', () {
+                      debugPrint('AppFooter: Tapped Privacy Policy');
+                    }),
                     _buildFooterDivider(),
-                    _buildFooterLink('FAQ', () {}),
+                    _buildFooterLink('FAQ', () {
+                      debugPrint('AppFooter: Tapped FAQ');
+                    }),
                   ],
                 ),
               ],

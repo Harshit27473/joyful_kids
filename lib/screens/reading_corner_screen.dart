@@ -13,6 +13,7 @@ class ReadingCornerScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    debugPrint('ReadingCornerScreen: Building UI');
     final List<ReadingItem> readingItems = [
       ReadingItem(
         title: 'Strategies For Building Resilience In Children',
@@ -70,7 +71,9 @@ class ReadingCornerScreen extends StatelessWidget {
                       ],
                     ),
                     ElevatedButton(
-                      onPressed: () {},
+                      onPressed: () {
+                        debugPrint('ReadingCornerScreen: View All pressed');
+                      },
                       style: ElevatedButton.styleFrom(
                         backgroundColor: AppColors.accentColor,
                         shape: RoundedRectangleBorder(
@@ -99,7 +102,9 @@ class ReadingCornerScreen extends StatelessWidget {
                     return _buildReadingCard(
                       title: item.title,
                       imageUrl: item.imageUrl,
-                      onTap: () {},
+                      onTap: () {
+                        debugPrint('ReadingCornerScreen: Tapped item: ${item.title}');
+                      },
                     );
                   },
                 ),
@@ -142,8 +147,10 @@ class ReadingCornerScreen extends StatelessWidget {
                 child: Image.network(
                   imageUrl,
                   fit: BoxFit.cover,
-                  errorBuilder: (context, error, stackTrace) =>
-                      const Icon(Icons.image_not_supported, size: 50),
+                  errorBuilder: (context, error, stackTrace) {
+                    debugPrint('ReadingCornerScreen: Error loading image $imageUrl: $error');
+                    return const Icon(Icons.image_not_supported, size: 50);
+                  },
                 ),
               ),
             ),

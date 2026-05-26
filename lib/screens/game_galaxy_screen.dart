@@ -11,6 +11,7 @@ class GameGalaxyScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    debugPrint('GameGalaxyScreen: Building UI');
     const JoyfulAppBar appBar = JoyfulAppBar();
 
     return Scaffold(

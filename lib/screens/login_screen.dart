@@ -21,25 +21,30 @@ class _LoginScreenState extends State<LoginScreen> {
   @override
   void initState() {
     super.initState();
+    debugPrint('LoginScreen: initState');
     _usernameController.text = 'demo';
     _passwordController.text = 'password';
   }
 
   @override
   void dispose() {
+    debugPrint('LoginScreen: dispose');
     _usernameController.dispose();
     _passwordController.dispose();
     super.dispose();
   }
 
   void _login() {
+    debugPrint('LoginScreen: Attempting login with username: ${_usernameController.text}');
     if (_usernameController.text == 'demo' &&
         _passwordController.text == 'password') {
+      debugPrint('LoginScreen: Login successful, navigating to Home');
       Navigator.pushReplacement(
         context,
         MaterialPageRoute(builder: (context) => const HomeScreen()),
       );
     } else {
+      debugPrint('LoginScreen: Login failed - invalid credentials');
       ScaffoldMessenger.of(context).showSnackBar(
         const SnackBar(
           content: Text('Invalid credentials. Please try again.'),
@@ -51,6 +56,7 @@ class _LoginScreenState extends State<LoginScreen> {
 
   @override
   Widget build(BuildContext context) {
+    debugPrint('LoginScreen: Building UI');
     return Scaffold(
       appBar: const JoyfulAppBar(),
       drawer: const JoyfulDrawer(),

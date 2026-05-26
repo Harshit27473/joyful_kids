@@ -5,9 +5,13 @@ import 'package:myapp/routes/app_routes.dart';
 import 'package:provider/provider.dart';
 
 void main() {
+  debugPrint('Starting Joyful Kids App...');
   runApp(
     ChangeNotifierProvider(
-      create: (context) => ThemeProvider(),
+      create: (context) {
+        debugPrint('Initializing ThemeProvider');
+        return ThemeProvider();
+      },
       child: const MyApp(),
     ),
   );
@@ -18,6 +22,7 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    debugPrint('Building MyApp widget tree');
     const Color primarySeedColor = Colors.deepPurple;
 
     // Define a common TextTheme
@@ -82,6 +87,7 @@ class MyApp extends StatelessWidget {
 
     return Consumer<ThemeProvider>(
       builder: (context, themeProvider, child) {
+        debugPrint('Theme changed to: ${themeProvider.themeMode}');
         return MaterialApp(
           title: 'Joyful Kids',
           theme: lightTheme,

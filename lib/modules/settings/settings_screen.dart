@@ -7,6 +7,7 @@ class SettingsScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    debugPrint('SettingsScreen: Building UI');
     final themeProvider = Provider.of<ThemeProvider>(context);
 
     return Scaffold(
@@ -20,6 +21,7 @@ class SettingsScreen extends StatelessWidget {
             subtitle: const Text('English', style: TextStyle()),
             leading: const Icon(Icons.language),
             onTap: () {
+              debugPrint('SettingsScreen: Language tapped');
               // Open language settings
             },
           ),
@@ -27,6 +29,7 @@ class SettingsScreen extends StatelessWidget {
             title: const Text('Dark Mode', style: TextStyle()),
             value: themeProvider.themeMode == ThemeMode.dark,
             onChanged: (value) {
+              debugPrint('SettingsScreen: Dark Mode toggled to $value');
               themeProvider.toggleTheme();
             },
             secondary: Icon(themeProvider.themeMode == ThemeMode.dark ? Icons.dark_mode : Icons.light_mode),
@@ -35,6 +38,7 @@ class SettingsScreen extends StatelessWidget {
             title: const Text('System Theme', style: TextStyle()),
             leading: const Icon(Icons.auto_mode),
             onTap: () {
+              debugPrint('SettingsScreen: System Theme tapped');
               themeProvider.setSystemTheme();
             },
           ),

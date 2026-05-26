@@ -8,6 +8,7 @@ class JoyfulDrawer extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    debugPrint('JoyfulDrawer: Building UI');
     return Drawer(
       backgroundColor: AppColors.white,
       child: ListView(
@@ -19,7 +20,10 @@ class JoyfulDrawer extends StatelessWidget {
             ),
             child: Row(
                 children: [
-                    Image.asset(ImagePaths.joy, height: 50),
+                    Image.asset(ImagePaths.joy, height: 50, errorBuilder: (context, error, stackTrace) {
+                      debugPrint('JoyfulDrawer: Error loading logo: $error');
+                      return const Icon(Icons.error);
+                    }),
                 ]
             ),
           ),
@@ -27,8 +31,9 @@ class JoyfulDrawer extends StatelessWidget {
             leading: const Icon(Icons.home, color: AppColors.black54),
             title: const Text('Home', style: TextStyle(color: AppColors.black87)),
             onTap: () {
+              debugPrint('JoyfulDrawer: Home tapped');
               Navigator.pop(context); // Close the drawer
-              // Navigate to Home if not already there
+              // Navigate to Home logic could be added here if needed
             },
           ),
           ExpansionTile(
@@ -41,7 +46,7 @@ class JoyfulDrawer extends StatelessWidget {
                 contentPadding: const EdgeInsets.only(left: 30.0),
                 title: const Text('Interactive Learning', style: TextStyle(color: AppColors.black87)),
                 onTap: () {
-                  // Handle navigation
+                  debugPrint('JoyfulDrawer: Category -> Interactive Learning tapped');
                   Navigator.pop(context);
                 },
               ),
@@ -49,7 +54,7 @@ class JoyfulDrawer extends StatelessWidget {
                 contentPadding: const EdgeInsets.only(left: 30.0),
                 title: const Text('Game Galaxy', style: TextStyle(color: AppColors.black87)),
                 onTap: () {
-                  // Handle navigation
+                  debugPrint('JoyfulDrawer: Category -> Game Galaxy tapped');
                   Navigator.pop(context);
                 },
               ),
@@ -57,7 +62,7 @@ class JoyfulDrawer extends StatelessWidget {
                 contentPadding: const EdgeInsets.only(left: 30.0),
                 title: const Text('Reading Corner', style: TextStyle(color: AppColors.black87)),
                 onTap: () {
-                  // Handle navigation
+                  debugPrint('JoyfulDrawer: Category -> Reading Corner tapped');
                   Navigator.pop(context);
                 },
               ),
@@ -67,6 +72,7 @@ class JoyfulDrawer extends StatelessWidget {
             leading: const Icon(Icons.info, color: AppColors.black54),
             title: const Text('About Us', style: TextStyle(color: AppColors.black87)),
             onTap: () {
+              debugPrint('JoyfulDrawer: About Us tapped');
               Navigator.pop(context);
               Navigator.push(context, MaterialPageRoute(builder: (context) => const AboutUsScreen()));
             },
@@ -76,7 +82,7 @@ class JoyfulDrawer extends StatelessWidget {
             leading: const Icon(Icons.login, color: AppColors.black54),
             title: const Text('Login', style: TextStyle(color: AppColors.black87)),
             onTap: () {
-              // Handle navigation
+              debugPrint('JoyfulDrawer: Login tapped');
               Navigator.pop(context);
             },
           ),

@@ -18,6 +18,7 @@ class _JoyfulAppBarState extends State<JoyfulAppBar> {
 
   @override
   Widget build(BuildContext context) {
+    debugPrint('JoyfulAppBar: Building UI');
     return PreferredSize(
       preferredSize: widget.preferredSize,
       child: Container(
@@ -28,9 +29,12 @@ class _JoyfulAppBarState extends State<JoyfulAppBar> {
             children: [
               GestureDetector(
                 onTap: () {
+                  debugPrint('JoyfulAppBar: Logo tapped, navigating to Home');
                   // Navigate to the home page if not already there
                   if (ModalRoute.of(context)?.settings.name != AppRoutes.home) {
                     Navigator.of(context).pushReplacementNamed(AppRoutes.home);
+                  } else {
+                    debugPrint('JoyfulAppBar: Already on Home, skipping navigation');
                   }
                 },
                 child: Padding(
@@ -38,7 +42,10 @@ class _JoyfulAppBarState extends State<JoyfulAppBar> {
                   child: SizedBox(
                     height: 54,
                     width: 150,
-                    child: Image.asset('assets/images/joy.png', fit: BoxFit.contain),
+                    child: Image.asset('assets/images/joy.png', fit: BoxFit.contain, errorBuilder: (context, error, stackTrace) {
+                      debugPrint('JoyfulAppBar: Error loading logo: $error');
+                      return const Icon(Icons.error);
+                    }),
                   ),
                 ),
               ),
@@ -49,11 +56,15 @@ class _JoyfulAppBarState extends State<JoyfulAppBar> {
                     Builder(
                       builder: (context) => IconButton(
                         icon: const Icon(Icons.menu, color: Colors.black, size: 30),
-                        onPressed: () => Scaffold.of(context).openDrawer(),
+                        onPressed: () {
+                          debugPrint('JoyfulAppBar: Menu button tapped, opening drawer');
+                          Scaffold.of(context).openDrawer();
+                        },
                       ),
                     ),
                     PopupMenuButton<String>(
                       onSelected: (String value) {
+                        debugPrint('JoyfulAppBar: Language changed to $value');
                         setState(() {
                           _selectedLanguage = value;
                         });
@@ -91,6 +102,7 @@ class _JoyfulAppBarState extends State<JoyfulAppBar> {
                     ),
                     GestureDetector(
                       onTap: () {
+                        debugPrint('JoyfulAppBar: User profile tapped, navigating to Login');
                         Navigator.push(
                           context,
                           MaterialPageRoute(builder: (context) => const LoginScreen()),

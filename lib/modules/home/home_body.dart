@@ -13,6 +13,7 @@ class HomeBody extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    debugPrint('Building HomeBody');
     final screenWidth = MediaQuery.of(context).size.width;
     final screenHeight = MediaQuery.of(context).size.height;
 
@@ -54,6 +55,7 @@ class HomeBody extends StatelessWidget {
                           title: 'Interactive Learning\nVideos',
                           imageUrl: ImagePaths.videoIcon,
                           onTap: () {
+                            debugPrint('HomeBody: Tapped Interactive Learning Videos (Wide)');
                             Navigator.push(
                               context,
                               MaterialPageRoute(builder: (context) => const InteractiveLearningVideosScreen()),
@@ -68,6 +70,7 @@ class HomeBody extends StatelessWidget {
                           title: 'Reading Corner',
                           imageUrl: ImagePaths.abc,
                           onTap: () {
+                            debugPrint('HomeBody: Tapped Reading Corner (Wide)');
                             Navigator.push(
                               context,
                               MaterialPageRoute(builder: (context) => const ReadingCornerScreen()),
@@ -82,6 +85,7 @@ class HomeBody extends StatelessWidget {
                           title: 'Game Galaxy',
                           imageUrl: ImagePaths.gameIcon,
                           onTap: () {
+                            debugPrint('HomeBody: Tapped Game Galaxy (Wide)');
                             Navigator.push(
                               context,
                               MaterialPageRoute(builder: (context) => const GameGalaxyScreen()),
@@ -104,6 +108,7 @@ class HomeBody extends StatelessWidget {
                               title: 'Interactive Learning\nVideos',
                               imageUrl: ImagePaths.videoIcon,
                               onTap: () {
+                                debugPrint('HomeBody: Tapped Interactive Learning Videos (Narrow)');
                                 Navigator.push(
                                   context,
                                   MaterialPageRoute(builder: (context) => const InteractiveLearningVideosScreen()),
@@ -116,6 +121,7 @@ class HomeBody extends StatelessWidget {
                               title: 'Reading Corner',
                               imageUrl: ImagePaths.abc,
                               onTap: () {
+                                debugPrint('HomeBody: Tapped Reading Corner (Narrow)');
                                 Navigator.push(
                                   context,
                                   MaterialPageRoute(builder: (context) => const ReadingCornerScreen()),
@@ -139,6 +145,7 @@ class HomeBody extends StatelessWidget {
                               title: 'Game Galaxy',
                               imageUrl: ImagePaths.gameIcon,
                               onTap: () {
+                                debugPrint('HomeBody: Tapped Game Galaxy (Narrow)');
                                 Navigator.push(
                                   context,
                                   MaterialPageRoute(builder: (context) => const GameGalaxyScreen()),
@@ -172,7 +179,9 @@ class HomeBody extends StatelessWidget {
                   ],
                 ),
                 ElevatedButton(
-                  onPressed: () {},
+                  onPressed: () {
+                    debugPrint('HomeBody: Tapped View All popular items');
+                  },
                   style: ElevatedButton.styleFrom(
                     backgroundColor: AppColors.accentColor,
                     shape: RoundedRectangleBorder(
@@ -194,6 +203,7 @@ class HomeBody extends StatelessWidget {
                   context: context,
                   item: item,
                   onTap: () {
+                    debugPrint('HomeBody: Tapped Popular Item: ${item.title}');
                     Navigator.push(
                       context,
                       MaterialPageRoute(
@@ -244,7 +254,10 @@ class HomeBody extends StatelessWidget {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            Image.asset(imageUrl, height: screenHeight * 0.1, errorBuilder: (context, error, stackTrace) => Icon(Icons.image_not_supported, size: screenHeight * 0.1)),
+            Image.asset(imageUrl, height: screenHeight * 0.1, errorBuilder: (context, error, stackTrace) {
+              debugPrint('HomeBody: Error loading image $imageUrl: $error');
+              return Icon(Icons.image_not_supported, size: screenHeight * 0.1);
+            }),
             SizedBox(height: screenHeight * 0.015),
             Text(
               title,
@@ -261,7 +274,8 @@ class HomeBody extends StatelessWidget {
     );
   }
 
-  Widget _buildPopularCard({    required BuildContext context,
+  Widget _buildPopularCard({
+    required BuildContext context,
     required PopularItem item,
     required VoidCallback onTap,
   }) {
@@ -292,11 +306,14 @@ class HomeBody extends StatelessWidget {
                 height: screenHeight * 0.22,
                 width: double.infinity,
                 fit: BoxFit.cover,
-                errorBuilder: (context, error, stackTrace) => Container(
-                  height: screenHeight * 0.22,
-                  color: Colors.grey[300],
-                  child: const Icon(Icons.image_not_supported, size: 50),
-                ),
+                errorBuilder: (context, error, stackTrace) {
+                  debugPrint('HomeBody: Error loading popular item image ${item.imageUrl}: $error');
+                  return Container(
+                    height: screenHeight * 0.22,
+                    color: Colors.grey[300],
+                    child: const Icon(Icons.image_not_supported, size: 50),
+                  );
+                },
               ),
               Padding(
                 padding: const EdgeInsets.all(16.0),

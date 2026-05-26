@@ -5,6 +5,7 @@ class AccountBanner extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    debugPrint('AccountBanner: Building UI');
     return Card(
       margin: const EdgeInsets.all(16.0),
       shape: RoundedRectangleBorder(
@@ -17,6 +18,10 @@ class AccountBanner extends StatelessWidget {
           'https://joyfulkids.arshiya.info/kids/ma_en.jpg',
           width: double.infinity,
           fit: BoxFit.cover,
+          errorBuilder: (context, error, stackTrace) {
+            debugPrint('AccountBanner: Error loading banner image: $error');
+            return const Icon(Icons.error);
+          },
         ),
       ),
     );

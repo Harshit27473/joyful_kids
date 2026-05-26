@@ -22,22 +22,28 @@ class JoyfulBottomNav extends StatelessWidget {
         return;
     }
 
+    debugPrint('JoyfulBottomNav: Tapped index $index, navigating from $currentRoute to $newRoute');
     if (currentRoute != newRoute) {
       Navigator.of(context).pushReplacementNamed(newRoute);
+    } else {
+      debugPrint('JoyfulBottomNav: Already on $newRoute, skipping navigation');
     }
   }
 
   int _getSelectedIndex(BuildContext context) {
     final String currentRoute = ModalRoute.of(context)?.settings.name ?? '';
+    int index;
     if (currentRoute == AppRoutes.home) {
-      return 1;
+      index = 1;
     } else if (currentRoute == AppRoutes.interactiveLearningVideos) {
-      return 0;
+      index = 0;
     } else if (currentRoute == AppRoutes.gameGalaxy) {
-      return 2;
+      index = 2;
+    } else {
+      index = 1; // Default
     }
-    // Default to home if the route is not recognized
-    return 1;
+    // debugPrint('JoyfulBottomNav: currentRoute=$currentRoute, selectedIndex=$index');
+    return index;
   }
 
   @override
@@ -104,8 +110,10 @@ class JoyfulBottomNav extends StatelessWidget {
                 imagePath,
                 height: iconSize,
                 width: iconSize,
-                errorBuilder: (context, error, stackTrace) =>
-                    Icon(Icons.error, size: iconSize, color: Colors.red),
+                errorBuilder: (context, error, stackTrace) {
+                  debugPrint('JoyfulBottomNav: Error loading asset $imagePath: $error');
+                  return Icon(Icons.error, size: iconSize, color: Colors.red);
+                },
               ),
             ),
           ),

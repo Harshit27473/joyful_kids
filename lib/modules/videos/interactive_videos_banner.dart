@@ -5,6 +5,7 @@ class InteractiveVideosBanner extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    debugPrint('InteractiveVideosBanner: Building UI');
     return Padding(
       padding: const EdgeInsets.fromLTRB(16, 30, 16, 0),
       child: Stack(
@@ -28,7 +29,10 @@ class InteractiveVideosBanner extends StatelessWidget {
                     child: CircularProgressIndicator(),
                   );
                 },
-                errorBuilder: (context, error, stackTrace) => const Icon(Icons.error, size: 80, color: Colors.red),
+                errorBuilder: (context, error, stackTrace) {
+                  debugPrint('InteractiveVideosBanner: Error loading banner image: $error');
+                  return const Icon(Icons.error, size: 80, color: Colors.red);
+                },
               ),
             ),
           ),
@@ -39,7 +43,10 @@ class InteractiveVideosBanner extends StatelessWidget {
               'https://joyfulkids.arshiya.info/kids/images/video-banner-icon.png',
               width: 60,
               height: 60,
-              errorBuilder: (context, error, stackTrace) => const SizedBox.shrink(),
+              errorBuilder: (context, error, stackTrace) {
+                debugPrint('InteractiveVideosBanner: Error loading banner icon: $error');
+                return const SizedBox.shrink();
+              },
             ),
           ),
         ],

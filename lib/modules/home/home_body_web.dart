@@ -13,6 +13,7 @@ class HomeBodyWeb extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    debugPrint('Building HomeBodyWeb');
     final List<PopularItem> popularItems = [
       PopularItem(title: 'Soccer Championship', imageUrl: ImagePaths.soccerChampionship),
       PopularItem(title: '7 Continents of the world', imageUrl: ImagePaths.continents),
@@ -39,9 +40,11 @@ class HomeBodyWeb extends StatelessWidget {
               children: [
                 Expanded(
                   child: _buildCategoryCard(
+                    context,
                     title: 'Interactive Learning\nVideos',
                     imageUrl: ImagePaths.videoIcon,
                     onTap: () {
+                      debugPrint('HomeBodyWeb: Tapped Interactive Learning Videos');
                       Navigator.push(
                         context,
                         MaterialPageRoute(builder: (context) => const InteractiveLearningVideosScreen()),
@@ -52,9 +55,11 @@ class HomeBodyWeb extends StatelessWidget {
                 const SizedBox(width: 40),
                 Expanded(
                   child: _buildCategoryCard(
+                    context,
                     title: 'Reading Corner',
                     imageUrl: ImagePaths.abc,
                     onTap: () {
+                      debugPrint('HomeBodyWeb: Tapped Reading Corner');
                       Navigator.push(
                         context,
                         MaterialPageRoute(builder: (context) => const ReadingCornerScreen()),
@@ -65,9 +70,11 @@ class HomeBodyWeb extends StatelessWidget {
                 const SizedBox(width: 40),
                 Expanded(
                   child: _buildCategoryCard(
+                    context,
                     title: 'Game Galaxy',
                     imageUrl: ImagePaths.gameIcon,
                     onTap: () {
+                      debugPrint('HomeBodyWeb: Tapped Game Galaxy');
                       Navigator.push(
                         context,
                         MaterialPageRoute(builder: (context) => const GameGalaxyScreen()),
@@ -96,7 +103,9 @@ class HomeBodyWeb extends StatelessWidget {
                   ],
                 ),
                 ElevatedButton(
-                  onPressed: () {},
+                  onPressed: () {
+                    debugPrint('HomeBodyWeb: Tapped View All popular items');
+                  },
                   style: ElevatedButton.styleFrom(
                     backgroundColor: AppColors.accentColor,
                     padding: const EdgeInsets.symmetric(horizontal: 32, vertical: 20),
@@ -115,6 +124,7 @@ class HomeBodyWeb extends StatelessWidget {
                         child: _buildPopularCard(
                           item: item,
                           onTap: () {
+                            debugPrint('HomeBodyWeb: Tapped Popular Item: ${item.title}');
                             Navigator.push(
                               context,
                               MaterialPageRoute(
@@ -134,7 +144,8 @@ class HomeBodyWeb extends StatelessWidget {
     );
   }
 
-  Widget _buildCategoryCard({
+  Widget _buildCategoryCard(
+    BuildContext context, {
     required String title,
     required String imageUrl,
     required VoidCallback onTap,
@@ -156,7 +167,10 @@ class HomeBodyWeb extends StatelessWidget {
         ),
         child: Column(
           children: [
-            Image.asset(imageUrl, height: 120, errorBuilder: (context, error, stackTrace) => const Icon(Icons.image_not_supported, size: 120)),
+            Image.asset(imageUrl, height: 120, errorBuilder: (context, error, stackTrace) {
+              debugPrint('HomeBodyWeb: Error loading category image $imageUrl: $error');
+              return const Icon(Icons.image_not_supported, size: 120);
+            }),
             const SizedBox(height: 20),
             Text(
               title,
@@ -202,11 +216,14 @@ class HomeBodyWeb extends StatelessWidget {
                 height: 180,
                 width: double.infinity,
                 fit: BoxFit.cover,
-                errorBuilder: (context, error, stackTrace) => Container(
-                  height: 180,
-                  color: Colors.grey[300],
-                  child: const Icon(Icons.image_not_supported, size: 50),
-                ),
+                errorBuilder: (context, error, stackTrace) {
+                  debugPrint('HomeBodyWeb: Error loading popular item image ${item.imageUrl}: $error');
+                  return Container(
+                    height: 180,
+                    color: Colors.grey[300],
+                    child: const Icon(Icons.image_not_supported, size: 50),
+                  );
+                },
               ),
               Padding(
                 padding: const EdgeInsets.all(16.0),

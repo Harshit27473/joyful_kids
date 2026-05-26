@@ -13,6 +13,7 @@ class InteractiveLearningVideosScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    debugPrint('InteractiveLearningVideosScreen: Building UI');
     return Scaffold(
       appBar: const JoyfulAppBar(),
       drawer: const JoyfulDrawer(),
@@ -43,7 +44,9 @@ class InteractiveLearningVideosScreen extends StatelessWidget {
                       ),
                     ),
                     ElevatedButton(
-                      onPressed: () {},
+                      onPressed: () {
+                        debugPrint('InteractiveLearningVideosScreen: Tapped View All');
+                      },
                       style: ElevatedButton.styleFrom(
                         backgroundColor: AppColors.accentColor, // Yellow color
                         shape: RoundedRectangleBorder(

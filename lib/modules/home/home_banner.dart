@@ -6,6 +6,7 @@ class HomeBanner extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    debugPrint('HomeBanner: Building UI');
     return Padding(
       padding: const EdgeInsets.all(16.0),
       child: Card(
@@ -18,6 +19,10 @@ class HomeBanner extends StatelessWidget {
           child: Image.asset(
             ImagePaths.homeEn,
             fit: BoxFit.cover,
+            errorBuilder: (context, error, stackTrace) {
+              debugPrint('HomeBanner: Error loading image ${ImagePaths.homeEn}: $error');
+              return const Icon(Icons.error);
+            },
           ),
         ),
       ),

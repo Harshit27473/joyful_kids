@@ -17,7 +17,14 @@ class HomeScreen extends StatefulWidget {
 
 class _HomeScreenState extends State<HomeScreen> {
   @override
+  void initState() {
+    super.initState();
+    debugPrint('HomeScreen: Initializing state');
+  }
+
+  @override
   Widget build(BuildContext context) {
+    debugPrint('HomeScreen: Building UI');
     const JoyfulAppBar appBar = JoyfulAppBar(); // Create an instance
 
     return Scaffold(
@@ -44,6 +51,7 @@ class _HomeScreenState extends State<HomeScreen> {
               child: LayoutBuilder(
                 builder: (context, constraints) {
                   if (constraints.maxWidth < 600) {
+                    debugPrint('HomeScreen: Rendering mobile layout (width < 600)');
                     return const Column(
                       children: [
                         HomeBanner(),
@@ -52,6 +60,7 @@ class _HomeScreenState extends State<HomeScreen> {
                       ],
                     );
                   } else {
+                    debugPrint('HomeScreen: Rendering web/tablet layout (width >= 600)');
                     return const Column(
                       children: [
                         HomeBanner(),

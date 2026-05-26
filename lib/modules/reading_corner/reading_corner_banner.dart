@@ -5,6 +5,7 @@ class ReadingCornerBanner extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    debugPrint('ReadingCornerBanner: Building UI');
     return Padding(
       padding: const EdgeInsets.fromLTRB(16, 30, 16, 0),
       child: Stack(
@@ -28,7 +29,10 @@ class ReadingCornerBanner extends StatelessWidget {
                     child: CircularProgressIndicator(),
                   );
                 },
-                errorBuilder: (context, error, stackTrace) => const Icon(Icons.error, size: 80, color: Colors.red),
+                errorBuilder: (context, error, stackTrace) {
+                  debugPrint('ReadingCornerBanner: Error loading banner image: $error');
+                  return const Icon(Icons.error, size: 80, color: Colors.red);
+                },
               ),
             ),
           ),
@@ -39,7 +43,10 @@ class ReadingCornerBanner extends StatelessWidget {
               'https://joyfulkids.arshiya.info/kids/images/reading-corner-banner-icon.png',
               width: 60,
               height: 60,
-              errorBuilder: (context, error, stackTrace) => const SizedBox.shrink(),
+              errorBuilder: (context, error, stackTrace) {
+                debugPrint('ReadingCornerBanner: Error loading banner icon: $error');
+                return const SizedBox.shrink();
+              },
             ),
           ),
         ],
